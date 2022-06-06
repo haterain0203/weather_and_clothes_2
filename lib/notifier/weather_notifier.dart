@@ -6,7 +6,9 @@ final weatherRepositoryProvider = Provider((ref) => WeatherRepository());
 
 final weatherFutureProvider = FutureProvider<WeatherState>(((ref) async {
   final repository = ref.read(weatherRepositoryProvider);
+  //TODO ローカルに保存されている郵便番号を用いる形に修正
   final address = await repository.getAddress("1250054");
+  //TODO ローカルに保存されている郵便番号を用いる形に修正
   final weatherState = WeatherState(
     postalCode: "1250054",
     prefecture: address["results"][0]["address1"],
