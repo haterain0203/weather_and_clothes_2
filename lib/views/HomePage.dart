@@ -114,8 +114,6 @@ class HomePage extends HookConsumerWidget {
               ),
               //ClothesArea
               //TODO 取得したデータに合わせて画像を切り替え
-              //TODO 朝・昼・夜に分けるか検討
-              //TODO CarouselSliderで実装してみたがイマイチ。そもそも仮に朝昼夜を表示するのであれば回転させる必要がない。
               Expanded(
                 child: RoundedCornerContainer(
                   color: Colors.grey.shade200,
