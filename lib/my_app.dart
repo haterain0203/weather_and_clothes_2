@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:weather_and_clothes_2/views/HomePage.dart';
 
 class MyApp extends StatelessWidget {
   const MyApp({Key? key}) : super(key: key);
@@ -6,11 +7,12 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
+      title: 'WeatherAndClothes',
+      debugShowCheckedModeBanner: false,
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: const ,
+      home: const HomePage(),
     );
   }
 }
