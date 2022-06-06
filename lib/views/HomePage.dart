@@ -142,6 +142,10 @@ class HomePage extends StatelessWidget {
                   ),
                 ),
               ),
+              RoundedCornerContainer(
+                height: 15.h,
+                color: Colors.grey.shade200,
+              ),
             ],
           ),
         ),
