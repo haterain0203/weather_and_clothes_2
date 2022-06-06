@@ -24,10 +24,13 @@ mixin _$WeatherState {
   String get prefecture => throw _privateConstructorUsedError;
   String get city => throw _privateConstructorUsedError;
   int get currentTemperature => throw _privateConstructorUsedError;
+  int get morningTemperature => throw _privateConstructorUsedError;
+  int get afternoonTemperature => throw _privateConstructorUsedError;
+  int get eveningTemperature => throw _privateConstructorUsedError;
+  int get yesterdayMaxTemperature => throw _privateConstructorUsedError;
   int get maxTemperature => throw _privateConstructorUsedError;
   String get weather => throw _privateConstructorUsedError;
   String get iconStr => throw _privateConstructorUsedError;
-  int get yesterdayMaxTemperature => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -45,10 +48,13 @@ abstract class $WeatherStateCopyWith<$Res> {
       String prefecture,
       String city,
       int currentTemperature,
+      int morningTemperature,
+      int afternoonTemperature,
+      int eveningTemperature,
+      int yesterdayMaxTemperature,
       int maxTemperature,
       String weather,
-      String iconStr,
-      int yesterdayMaxTemperature});
+      String iconStr});
 }
 
 /// @nodoc
@@ -65,10 +71,13 @@ class _$WeatherStateCopyWithImpl<$Res> implements $WeatherStateCopyWith<$Res> {
     Object? prefecture = freezed,
     Object? city = freezed,
     Object? currentTemperature = freezed,
+    Object? morningTemperature = freezed,
+    Object? afternoonTemperature = freezed,
+    Object? eveningTemperature = freezed,
+    Object? yesterdayMaxTemperature = freezed,
     Object? maxTemperature = freezed,
     Object? weather = freezed,
     Object? iconStr = freezed,
-    Object? yesterdayMaxTemperature = freezed,
   }) {
     return _then(_value.copyWith(
       postalCode: postalCode == freezed
@@ -87,6 +96,22 @@ class _$WeatherStateCopyWithImpl<$Res> implements $WeatherStateCopyWith<$Res> {
           ? _value.currentTemperature
           : currentTemperature // ignore: cast_nullable_to_non_nullable
               as int,
+      morningTemperature: morningTemperature == freezed
+          ? _value.morningTemperature
+          : morningTemperature // ignore: cast_nullable_to_non_nullable
+              as int,
+      afternoonTemperature: afternoonTemperature == freezed
+          ? _value.afternoonTemperature
+          : afternoonTemperature // ignore: cast_nullable_to_non_nullable
+              as int,
+      eveningTemperature: eveningTemperature == freezed
+          ? _value.eveningTemperature
+          : eveningTemperature // ignore: cast_nullable_to_non_nullable
+              as int,
+      yesterdayMaxTemperature: yesterdayMaxTemperature == freezed
+          ? _value.yesterdayMaxTemperature
+          : yesterdayMaxTemperature // ignore: cast_nullable_to_non_nullable
+              as int,
       maxTemperature: maxTemperature == freezed
           ? _value.maxTemperature
           : maxTemperature // ignore: cast_nullable_to_non_nullable
@@ -99,10 +124,6 @@ class _$WeatherStateCopyWithImpl<$Res> implements $WeatherStateCopyWith<$Res> {
           ? _value.iconStr
           : iconStr // ignore: cast_nullable_to_non_nullable
               as String,
-      yesterdayMaxTemperature: yesterdayMaxTemperature == freezed
-          ? _value.yesterdayMaxTemperature
-          : yesterdayMaxTemperature // ignore: cast_nullable_to_non_nullable
-              as int,
     ));
   }
 }
@@ -119,10 +140,13 @@ abstract class _$$_WeatherStateCopyWith<$Res>
       String prefecture,
       String city,
       int currentTemperature,
+      int morningTemperature,
+      int afternoonTemperature,
+      int eveningTemperature,
+      int yesterdayMaxTemperature,
       int maxTemperature,
       String weather,
-      String iconStr,
-      int yesterdayMaxTemperature});
+      String iconStr});
 }
 
 /// @nodoc
@@ -142,10 +166,13 @@ class __$$_WeatherStateCopyWithImpl<$Res>
     Object? prefecture = freezed,
     Object? city = freezed,
     Object? currentTemperature = freezed,
+    Object? morningTemperature = freezed,
+    Object? afternoonTemperature = freezed,
+    Object? eveningTemperature = freezed,
+    Object? yesterdayMaxTemperature = freezed,
     Object? maxTemperature = freezed,
     Object? weather = freezed,
     Object? iconStr = freezed,
-    Object? yesterdayMaxTemperature = freezed,
   }) {
     return _then(_$_WeatherState(
       postalCode: postalCode == freezed
@@ -164,6 +191,22 @@ class __$$_WeatherStateCopyWithImpl<$Res>
           ? _value.currentTemperature
           : currentTemperature // ignore: cast_nullable_to_non_nullable
               as int,
+      morningTemperature: morningTemperature == freezed
+          ? _value.morningTemperature
+          : morningTemperature // ignore: cast_nullable_to_non_nullable
+              as int,
+      afternoonTemperature: afternoonTemperature == freezed
+          ? _value.afternoonTemperature
+          : afternoonTemperature // ignore: cast_nullable_to_non_nullable
+              as int,
+      eveningTemperature: eveningTemperature == freezed
+          ? _value.eveningTemperature
+          : eveningTemperature // ignore: cast_nullable_to_non_nullable
+              as int,
+      yesterdayMaxTemperature: yesterdayMaxTemperature == freezed
+          ? _value.yesterdayMaxTemperature
+          : yesterdayMaxTemperature // ignore: cast_nullable_to_non_nullable
+              as int,
       maxTemperature: maxTemperature == freezed
           ? _value.maxTemperature
           : maxTemperature // ignore: cast_nullable_to_non_nullable
@@ -176,10 +219,6 @@ class __$$_WeatherStateCopyWithImpl<$Res>
           ? _value.iconStr
           : iconStr // ignore: cast_nullable_to_non_nullable
               as String,
-      yesterdayMaxTemperature: yesterdayMaxTemperature == freezed
-          ? _value.yesterdayMaxTemperature
-          : yesterdayMaxTemperature // ignore: cast_nullable_to_non_nullable
-              as int,
     ));
   }
 }
@@ -192,10 +231,13 @@ class _$_WeatherState with DiagnosticableTreeMixin implements _WeatherState {
       required this.prefecture,
       required this.city,
       required this.currentTemperature,
+      required this.morningTemperature,
+      required this.afternoonTemperature,
+      required this.eveningTemperature,
+      required this.yesterdayMaxTemperature,
       required this.maxTemperature,
       required this.weather,
-      required this.iconStr,
-      required this.yesterdayMaxTemperature});
+      required this.iconStr});
 
   factory _$_WeatherState.fromJson(Map<String, dynamic> json) =>
       _$$_WeatherStateFromJson(json);
@@ -209,17 +251,23 @@ class _$_WeatherState with DiagnosticableTreeMixin implements _WeatherState {
   @override
   final int currentTemperature;
   @override
+  final int morningTemperature;
+  @override
+  final int afternoonTemperature;
+  @override
+  final int eveningTemperature;
+  @override
+  final int yesterdayMaxTemperature;
+  @override
   final int maxTemperature;
   @override
   final String weather;
   @override
   final String iconStr;
-  @override
-  final int yesterdayMaxTemperature;
 
   @override
   String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
-    return 'WeatherState(postalCode: $postalCode, prefecture: $prefecture, city: $city, currentTemperature: $currentTemperature, maxTemperature: $maxTemperature, weather: $weather, iconStr: $iconStr, yesterdayMaxTemperature: $yesterdayMaxTemperature)';
+    return 'WeatherState(postalCode: $postalCode, prefecture: $prefecture, city: $city, currentTemperature: $currentTemperature, morningTemperature: $morningTemperature, afternoonTemperature: $afternoonTemperature, eveningTemperature: $eveningTemperature, yesterdayMaxTemperature: $yesterdayMaxTemperature, maxTemperature: $maxTemperature, weather: $weather, iconStr: $iconStr)';
   }
 
   @override
@@ -231,11 +279,14 @@ class _$_WeatherState with DiagnosticableTreeMixin implements _WeatherState {
       ..add(DiagnosticsProperty('prefecture', prefecture))
       ..add(DiagnosticsProperty('city', city))
       ..add(DiagnosticsProperty('currentTemperature', currentTemperature))
+      ..add(DiagnosticsProperty('morningTemperature', morningTemperature))
+      ..add(DiagnosticsProperty('afternoonTemperature', afternoonTemperature))
+      ..add(DiagnosticsProperty('eveningTemperature', eveningTemperature))
+      ..add(DiagnosticsProperty(
+          'yesterdayMaxTemperature', yesterdayMaxTemperature))
       ..add(DiagnosticsProperty('maxTemperature', maxTemperature))
       ..add(DiagnosticsProperty('weather', weather))
-      ..add(DiagnosticsProperty('iconStr', iconStr))
-      ..add(DiagnosticsProperty(
-          'yesterdayMaxTemperature', yesterdayMaxTemperature));
+      ..add(DiagnosticsProperty('iconStr', iconStr));
   }
 
   @override
@@ -251,11 +302,17 @@ class _$_WeatherState with DiagnosticableTreeMixin implements _WeatherState {
             const DeepCollectionEquality()
                 .equals(other.currentTemperature, currentTemperature) &&
             const DeepCollectionEquality()
+                .equals(other.morningTemperature, morningTemperature) &&
+            const DeepCollectionEquality()
+                .equals(other.afternoonTemperature, afternoonTemperature) &&
+            const DeepCollectionEquality()
+                .equals(other.eveningTemperature, eveningTemperature) &&
+            const DeepCollectionEquality().equals(
+                other.yesterdayMaxTemperature, yesterdayMaxTemperature) &&
+            const DeepCollectionEquality()
                 .equals(other.maxTemperature, maxTemperature) &&
             const DeepCollectionEquality().equals(other.weather, weather) &&
-            const DeepCollectionEquality().equals(other.iconStr, iconStr) &&
-            const DeepCollectionEquality().equals(
-                other.yesterdayMaxTemperature, yesterdayMaxTemperature));
+            const DeepCollectionEquality().equals(other.iconStr, iconStr));
   }
 
   @JsonKey(ignore: true)
@@ -266,10 +323,13 @@ class _$_WeatherState with DiagnosticableTreeMixin implements _WeatherState {
       const DeepCollectionEquality().hash(prefecture),
       const DeepCollectionEquality().hash(city),
       const DeepCollectionEquality().hash(currentTemperature),
+      const DeepCollectionEquality().hash(morningTemperature),
+      const DeepCollectionEquality().hash(afternoonTemperature),
+      const DeepCollectionEquality().hash(eveningTemperature),
+      const DeepCollectionEquality().hash(yesterdayMaxTemperature),
       const DeepCollectionEquality().hash(maxTemperature),
       const DeepCollectionEquality().hash(weather),
-      const DeepCollectionEquality().hash(iconStr),
-      const DeepCollectionEquality().hash(yesterdayMaxTemperature));
+      const DeepCollectionEquality().hash(iconStr));
 
   @JsonKey(ignore: true)
   @override
@@ -288,10 +348,13 @@ abstract class _WeatherState implements WeatherState {
       required final String prefecture,
       required final String city,
       required final int currentTemperature,
+      required final int morningTemperature,
+      required final int afternoonTemperature,
+      required final int eveningTemperature,
+      required final int yesterdayMaxTemperature,
       required final int maxTemperature,
       required final String weather,
-      required final String iconStr,
-      required final int yesterdayMaxTemperature}) = _$_WeatherState;
+      required final String iconStr}) = _$_WeatherState;
 
   factory _WeatherState.fromJson(Map<String, dynamic> json) =
       _$_WeatherState.fromJson;
@@ -305,13 +368,19 @@ abstract class _WeatherState implements WeatherState {
   @override
   int get currentTemperature => throw _privateConstructorUsedError;
   @override
+  int get morningTemperature => throw _privateConstructorUsedError;
+  @override
+  int get afternoonTemperature => throw _privateConstructorUsedError;
+  @override
+  int get eveningTemperature => throw _privateConstructorUsedError;
+  @override
+  int get yesterdayMaxTemperature => throw _privateConstructorUsedError;
+  @override
   int get maxTemperature => throw _privateConstructorUsedError;
   @override
   String get weather => throw _privateConstructorUsedError;
   @override
   String get iconStr => throw _privateConstructorUsedError;
-  @override
-  int get yesterdayMaxTemperature => throw _privateConstructorUsedError;
   @override
   @JsonKey(ignore: true)
   _$$_WeatherStateCopyWith<_$_WeatherState> get copyWith =>

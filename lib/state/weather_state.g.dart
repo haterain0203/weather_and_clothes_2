@@ -12,10 +12,13 @@ _$_WeatherState _$$_WeatherStateFromJson(Map<String, dynamic> json) =>
       prefecture: json['prefecture'] as String,
       city: json['city'] as String,
       currentTemperature: json['currentTemperature'] as int,
+      morningTemperature: json['morningTemperature'] as int,
+      afternoonTemperature: json['afternoonTemperature'] as int,
+      eveningTemperature: json['eveningTemperature'] as int,
+      yesterdayMaxTemperature: json['yesterdayMaxTemperature'] as int,
       maxTemperature: json['maxTemperature'] as int,
       weather: json['weather'] as String,
       iconStr: json['iconStr'] as String,
-      yesterdayMaxTemperature: json['yesterdayMaxTemperature'] as int,
     );
 
 Map<String, dynamic> _$$_WeatherStateToJson(_$_WeatherState instance) =>
@@ -24,8 +27,11 @@ Map<String, dynamic> _$$_WeatherStateToJson(_$_WeatherState instance) =>
       'prefecture': instance.prefecture,
       'city': instance.city,
       'currentTemperature': instance.currentTemperature,
+      'morningTemperature': instance.morningTemperature,
+      'afternoonTemperature': instance.afternoonTemperature,
+      'eveningTemperature': instance.eveningTemperature,
+      'yesterdayMaxTemperature': instance.yesterdayMaxTemperature,
       'maxTemperature': instance.maxTemperature,
       'weather': instance.weather,
       'iconStr': instance.iconStr,
-      'yesterdayMaxTemperature': instance.yesterdayMaxTemperature,
     };

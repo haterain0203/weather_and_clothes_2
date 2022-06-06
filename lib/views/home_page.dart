@@ -1,3 +1,5 @@
+import 'dart:math';
+
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
@@ -5,6 +7,7 @@ import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:sizer/sizer.dart';
 import 'package:weather_and_clothes_2/components/clothes_animated_container.dart';
 import 'package:weather_and_clothes_2/notifier/weather_notifier.dart';
+import 'package:weather_and_clothes_2/state/weather_state.dart';
 
 import '../components/home_data_text.dart';
 import '../components/rounded_corner_container.dart';
@@ -162,7 +165,8 @@ class HomePage extends HookConsumerWidget {
                           itemBuilder: (context, index) {
                             final timeString = _setTimeString(index);
                             //TODO 朝昼夜で使い分け
-                            final imageURL = _selectImageURL(data.maxTemperature);
+                            final maxTemperature = _selectMaxTemperature(data, index);
+                            final imageURL = _selectImageURL(maxTemperature);
                             // アクティブ値
                             bool active = _pageIndex.value == index;
                             return Column(
@@ -212,6 +216,12 @@ class HomePage extends HookConsumerWidget {
     return "";
   }
 
+  int _selectMaxTemperature(WeatherState weather, int index) {
+    if(index == 0) return weather.morningTemperature;
+    if(index == 1) return weather.afternoonTemperature;
+    return weather.eveningTemperature;
+  }
+
   String _selectImageURL(int temp) {
     const baseURL = "assets/images/";
     if(temp >= 30) return baseURL + "t-shirt.png";
@@ -223,4 +233,5 @@ class HomePage extends HookConsumerWidget {
     if(temp >= 5 && temp < 8) return baseURL + "coat.png";
     return baseURL + "down_coat.png";
   }
+
 }
