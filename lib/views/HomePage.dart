@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:sizer/sizer.dart';
 
@@ -10,6 +11,12 @@ class HomePage extends HookConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
+    final _pageIndex = useState(1);
+    final _pageController = usePageController(
+      viewportFraction: 0.5,
+      //こうすることで、一度設定画面など別ページから戻った際も直前に選択されていたお店が表示されるようになる
+      initialPage: _pageIndex.value,
+    );
     return Scaffold(
       body: SafeArea(
         child: Padding(
@@ -114,9 +121,9 @@ class HomePage extends HookConsumerWidget {
                   color: Colors.grey.shade200,
                   //TODO Animationでぬるっとさせたい
                   child: PageView.builder(
-                    // controller: _pageController,
+                    controller: _pageController,
                     onPageChanged: (index) {
-                      // _pageIndex.value = index;
+                      _pageIndex.value = index;
                     },
                     itemCount: 3,
                     itemBuilder: (context, index) {
@@ -124,18 +131,17 @@ class HomePage extends HookConsumerWidget {
                       return Column(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
-                          Text(
-                            timeString,
-                            style: TextStyle(
-                              fontSize: 14.sp,
-                            ),
-                          ),
+                          // Text(
+                          //   timeString,
+                          //   style: TextStyle(
+                          //     fontSize: 14.sp,
+                          //   ),
+                          // ),
                           //TODO 選択されてるやつ以外小さく表示したい
                           Container(
-                            height: 35.h,
-                            width: 30.h,
                             color: Colors.grey,
-                            // width: index == _pageIndex.value ? 30.h : 12.h,
+                            width: index == _pageIndex.value ? 30.h : 12.h,
+                            height: index == _pageIndex.value ? 30.h : 12.h,
                           ),
                         ],
                       );
