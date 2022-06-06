@@ -131,8 +131,8 @@ class HomePage extends StatelessWidget {
                           ),
                           //TODO 選択されてるやつ以外小さく表示したい
                           Container(
-                            height: 300.0,
-                            width: 300.0,
+                            height: 35.h,
+                            width: 30.h,
                             color: Colors.grey,
                             // width: index == _pageIndex.value ? 30.h : 12.h,
                           ),
