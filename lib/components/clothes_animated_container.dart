@@ -4,10 +4,12 @@ import 'package:sizer/sizer.dart';
 class ClothesAnimatedContainer extends StatelessWidget {
   const ClothesAnimatedContainer({
     required this.active,
+    required this.imageURL,
     Key? key,
   }) : super(key: key);
 
   final bool active;
+  final String imageURL;
 
   @override
   Widget build(BuildContext context) {
@@ -22,7 +24,7 @@ class ClothesAnimatedContainer extends StatelessWidget {
       curve: Curves.easeOutQuint,
       //TODO 洋服の画像が入ります
       child: Image.asset(
-        "assets/images/t-shirt.png",
+        imageURL,
         fit: BoxFit.contain,
       ),
     );

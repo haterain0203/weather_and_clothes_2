@@ -138,6 +138,8 @@ class HomePage extends HookConsumerWidget {
                           itemCount: 3,
                           itemBuilder: (context, index) {
                             final timeString = _setTimeString(index);
+                            //TODO 朝昼夜で使い分け
+                            final imageURL = _selectImageURL(data.maxTemperature);
                             // アクティブ値
                             bool active = _pageIndex.value == index;
                             return Column(
@@ -149,7 +151,7 @@ class HomePage extends HookConsumerWidget {
                                     fontSize: 14.sp,
                                   ),
                                 ),
-                                ClothesAnimatedContainer(active: active,)
+                                ClothesAnimatedContainer(active: active, imageURL: imageURL,)
                               ],
                             );
                           },
@@ -188,13 +190,14 @@ class HomePage extends HookConsumerWidget {
   }
 
   String _selectImageURL(int temp) {
-    if(temp >= 30) return "t-shirt.png";
-    if(temp >= 25 && temp < 30) return "shirt.png";
-    if(temp >= 20 && temp < 25) return "long_shirt.png";
-    if(temp >= 16 && temp < 20) return "cardigan.png";
-    if(temp >= 12 && temp < 16) return "sweater.png";
-    if(temp >= 8 && temp < 12) return "trench_coat.png";
-    if(temp >= 5 && temp < 8) return "coat.png";
-    return "down_coat.png";
+    const baseURL = "assets/images/";
+    if(temp >= 30) return baseURL + "t-shirt.png";
+    if(temp >= 25 && temp < 30) return baseURL + "shirt.png";
+    if(temp >= 20 && temp < 25) return baseURL + "long_shirt.png";
+    if(temp >= 16 && temp < 20) return baseURL + "cardigan.png";
+    if(temp >= 12 && temp < 16) return baseURL + "sweater.png";
+    if(temp >= 8 && temp < 12) return baseURL + "trench_coat.png";
+    if(temp >= 5 && temp < 8) return baseURL + "coat.png";
+    return baseURL + "down_coat.png";
   }
 }
