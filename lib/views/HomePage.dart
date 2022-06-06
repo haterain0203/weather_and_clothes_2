@@ -174,4 +174,6 @@ class HomePage extends HookConsumerWidget {
     if(index == 1) return "昼";
     return "夜";
   }
+
+  // String _compare
 }

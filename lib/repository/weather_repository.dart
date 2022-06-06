@@ -40,4 +40,19 @@ class WeatherRepository {
     }
   }
 
+  Future<Map<String, dynamic>> getYesterdayWeather(double lat, double lon) async {
+    // OpenWeatherだと過去のデータが取得できない（有料）のため、過去データはOpenMeteoで取得
+    //TODO 統一すべきか？
+    var url = "https://api.open-meteo.com/v1/forecast?latitude=$lat&longitude=$lon&daily=temperature_2m_max&timezone=Asia%2FTokyo&past_days=1";
+    try {
+      var result = await http.get(Uri.parse(url));
+      Map<String, dynamic> data = jsonDecode(result.body);
+      return data;
+    } catch(e) {
+      print(e);
+      return {};
+    }
+
+  }
+
 }

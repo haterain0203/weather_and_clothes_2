@@ -9,6 +9,7 @@ final weatherFutureProvider = FutureProvider<WeatherState>(((ref) async {
   //TODO ローカルに保存されている郵便番号を用いる形に修正
   final address = await repository.getAddress("1250054");
   final weather = await repository.getWeather("1250054");
+  final yesterdayWeather = await repository.getYesterdayWeather(weather["coord"]["lat"], weather["coord"]["lon"]);
   //TODO ローカルに保存されている郵便番号を用いる形に修正
   final weatherState = WeatherState(
     postalCode: "1250054",
