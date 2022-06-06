@@ -21,7 +21,10 @@ class ClothesAnimatedContainer extends StatelessWidget {
       width: size,
       curve: Curves.easeOutQuint,
       //TODO 洋服の画像が入ります
-      // child: ,
+      child: Image.asset(
+        "assets/images/t-shirt.png",
+        fit: BoxFit.contain,
+      ),
     );
   }
 }
