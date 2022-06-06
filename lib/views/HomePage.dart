@@ -59,17 +59,19 @@ class HomePage extends HookConsumerWidget {
                           //TODO 設定画面で入力された郵便番号と住所を取得して表示
                           Row(
                             mainAxisAlignment: MainAxisAlignment.center,
-                            children: const [
+                            children: [
                               //TODO 可変に
                               HomeDataText(
-                                text: "〒000-0000",
+                                text: "〒${data.postalCode.toString()}",
+                                // text: "〒000-0000",
                               ),
                               SizedBox(
                                 width: 16.0,
                               ),
                               //TODO 可変に
                               HomeDataText(
-                                text: "東京都xx区",
+                                text: data.prefecture + data.city,
+                                // text: "東京都xx区",
                               ),
                             ],
                           ),
@@ -95,8 +97,9 @@ class HomePage extends HookConsumerWidget {
                               //TODO 取得した気温を表示する
                               //TODO レイアウト的に数字のみフォントを大きくする予定
                               //TODO 可変に
-                              const HomeDataText(
-                                text: "20℃",
+                              HomeDataText(
+                                text: "${data.temperature.toString()}℃",
+                                // text: "20℃",
                               ),
                             ],
                           ),
