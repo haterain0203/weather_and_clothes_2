@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:sizer/sizer.dart';
+import 'package:weather_and_clothes_2/components/clothes_animated_container.dart';
 
 import '../components/home_data_text.dart';
 import '../components/rounded_corner_container.dart';
@@ -127,6 +128,8 @@ class HomePage extends HookConsumerWidget {
                     itemCount: 3,
                     itemBuilder: (context, index) {
                       final timeString = _setTimeString(index);
+                      // アクティブ値
+                      bool active = _pageIndex.value == index;
                       return Column(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
@@ -136,12 +139,7 @@ class HomePage extends HookConsumerWidget {
                           //     fontSize: 14.sp,
                           //   ),
                           // ),
-                          //TODO 選択されてるやつ以外小さく表示したい
-                          Container(
-                            color: Colors.grey,
-                            width: index == _pageIndex.value ? 30.h : 12.h,
-                            height: index == _pageIndex.value ? 30.h : 12.h,
-                          ),
+                          ClothesAnimatedContainer(active: active,)
                         ],
                       );
                     },

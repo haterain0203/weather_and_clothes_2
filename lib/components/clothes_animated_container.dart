@@ -1,10 +1,25 @@
 import 'package:flutter/material.dart';
+import 'package:sizer/sizer.dart';
 
 class ClothesAnimatedContainer extends StatelessWidget {
-  const ClothesAnimatedContainer({Key? key}) : super(key: key);
+  const ClothesAnimatedContainer({
+    required this.active,
+    Key? key,
+  }) : super(key: key);
+
+  final bool active;
 
   @override
   Widget build(BuildContext context) {
-    return ;
+    // アクティブと非アクティブのアニメーション設定値
+    final double size = active ? 30.h : 12.h;
+
+    return AnimatedContainer(
+      color: Colors.grey,
+      duration: const Duration(milliseconds: 500),
+      height: size,
+      width: size,
+      curve: Curves.easeOutQuint,
+    );
   }
 }
