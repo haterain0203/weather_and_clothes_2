@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:sizer/sizer.dart';
 
 import '../components/home_data_text.dart';
 import '../components/rounded_corner_container.dart';
@@ -99,8 +100,46 @@ class HomePage extends StatelessWidget {
                           text: "ちょっと寒い",
                         ),
                       ],
-                    )
+                    ),
                   ],
+                ),
+              ),
+              //ClothesArea
+              //TODO 取得したデータに合わせて画像を切り替え
+              //TODO 朝・昼・夜に分けるか検討
+              //TODO CarouselSliderで実装してみたがイマイチ。そもそも仮に朝昼夜を表示するのであれば回転させる必要がない。
+              Expanded(
+                child: RoundedCornerContainer(
+                  color: Colors.grey.shade200,
+                  //TODO Animationでぬるっとさせたい
+                  child: PageView.builder(
+                    // controller: _pageController,
+                    onPageChanged: (index) {
+                      // _pageIndex.value = index;
+                    },
+                    itemCount: 3,
+                    itemBuilder: (context, index) {
+                      final timeString = _setTimeString(index);
+                      return Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Text(
+                            timeString,
+                            style: TextStyle(
+                              fontSize: 14.sp,
+                            ),
+                          ),
+                          //TODO 選択されてるやつ以外小さく表示したい
+                          Container(
+                            height: 300.0,
+                            width: 300.0,
+                            color: Colors.grey,
+                            // width: index == _pageIndex.value ? 30.h : 12.h,
+                          ),
+                        ],
+                      );
+                    },
+                  ),
                 ),
               ),
             ],
@@ -108,5 +147,11 @@ class HomePage extends StatelessWidget {
         ),
       ),
     );
+  }
+
+  String _setTimeString(int index) {
+    if(index == 0) return "朝";
+    if(index == 1) return "昼";
+    return "夜";
   }
 }
