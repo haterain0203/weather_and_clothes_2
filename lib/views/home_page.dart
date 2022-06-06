@@ -22,6 +22,33 @@ class HomePage extends HookConsumerWidget {
       initialPage: _pageIndex.value,
     );
     return Scaffold(
+      appBar: AppBar(
+        backgroundColor: Color(0xFF003569),
+        //TODO 本日の日付を取得して表示
+        //TODO レイアウト的に数字のみフォントを大きくする予定
+        title: const Text(
+          "6月6日（月）",
+          style: TextStyle(
+            color: Colors.white,
+            fontWeight: FontWeight.bold,
+          ),
+        ),
+        centerTitle: true,
+        actions: [
+          IconButton(
+            onPressed: () {
+              //TODO 押下処理
+            },
+            icon: Icon(Icons.settings),
+          ),
+          IconButton(
+            onPressed: () {
+              //TODO 押下処理
+            },
+            icon: Icon(Icons.share),
+          ),
+        ],
+      ),
       body: weatherState.when(
         loading: () => const Center(child: CircularProgressIndicator()),
         error: (error, stack) =>
@@ -33,26 +60,9 @@ class HomePage extends HookConsumerWidget {
                 padding: const EdgeInsets.all(8.0),
                 child: Column(
                   children: [
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.end,
-                      children: [
-                        IconButton(
-                          onPressed: () {
-                            //TODO 押下処理
-                          },
-                          icon: Icon(Icons.settings),
-                        ),
-                        IconButton(
-                          onPressed: () {
-                            //TODO 押下処理
-                          },
-                          icon: Icon(Icons.share),
-                        ),
-                      ],
-                    ),
                     RoundedCornerContainer(
                       padding: const EdgeInsets.all(8.0),
-                      color: Colors.grey.shade200,
+                      // color: Colors.grey.shade200,
                       child: Column(
                         children: [
                           //AddressArea
@@ -75,36 +85,47 @@ class HomePage extends HookConsumerWidget {
                               ),
                             ],
                           ),
-                          const SizedBox(
-                            height: 8.0,
-                          ),
                           //DateArea
-                          //TODO 本日の日付を取得して表示
-                          //TODO レイアウト的に数字のみフォントを大きくする予定
                           Row(
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: [
-                              //TODO 可変に
-                              const HomeDataText(
-                                text: "6月6日（月）",
-                              ),
-                              const SizedBox(width: 12.0,),
                               //TODO 天気に合わせて画像を変更する
-                              CachedNetworkImage(
-                                imageUrl: "http://openweathermap.org/img/wn/${data.iconStr}.png",
+                              SizedBox(
+                                height: 10.h,
+                                width: 10.h,
+                                child: CachedNetworkImage(
+                                  imageUrl: "http://openweathermap.org/img/wn/${data.iconStr}.png",
+                                  fit: BoxFit.contain,
+                                ),
                               ),
                               const SizedBox(width: 20.0,),
                               //TODO 取得した気温を表示する
                               //TODO レイアウト的に数字のみフォントを大きくする予定
                               //TODO 可変に
-                              HomeDataText(
-                                text: "最高：${data.maxTemperature.toString()}℃",
-                                // text: "20℃",
+                              RichText(
+                                text: TextSpan(
+                                  style: TextStyle(
+                                    color: Colors.black,
+                                    fontSize: 13.sp,
+                                  ),
+                                  children: [
+                                    TextSpan(
+                                      text: "最高："
+                                    ),
+                                    TextSpan(
+                                      text: data.maxTemperature.toString(),
+                                      style: TextStyle(
+                                        fontSize: 24.sp,
+                                        color: Color(0xFFF78611),
+                                      ),
+                                    ),
+                                    TextSpan(
+                                      text: "℃",
+                                    ),
+                                  ]
+                                ),
                               ),
                             ],
-                          ),
-                          const SizedBox(
-                            height: 8.0,
                           ),
                           Row(
                             mainAxisAlignment: MainAxisAlignment.center,
