@@ -149,7 +149,7 @@ class HomePage extends HookConsumerWidget {
                     //TODO 取得したデータに合わせて画像を切り替え
                     Expanded(
                       child: RoundedCornerContainer(
-                        color: Colors.grey.shade200,
+                        color: Colors.white,
                         //TODO Animationでぬるっとさせたい
                         child: PageView.builder(
                           controller: _pageController,
