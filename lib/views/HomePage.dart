@@ -133,12 +133,12 @@ class HomePage extends HookConsumerWidget {
                       return Column(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
-                          // Text(
-                          //   timeString,
-                          //   style: TextStyle(
-                          //     fontSize: 14.sp,
-                          //   ),
-                          // ),
+                          Text(
+                            timeString,
+                            style: TextStyle(
+                              fontSize: 14.sp,
+                            ),
+                          ),
                           ClothesAnimatedContainer(active: active,)
                         ],
                       );

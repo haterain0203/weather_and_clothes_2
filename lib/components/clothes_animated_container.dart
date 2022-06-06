@@ -16,7 +16,7 @@ class ClothesAnimatedContainer extends StatelessWidget {
 
     return AnimatedContainer(
       color: Colors.grey,
-      duration: const Duration(milliseconds: 500),
+      duration: const Duration(milliseconds: 800),
       height: size,
       width: size,
       curve: Curves.easeOutQuint,
