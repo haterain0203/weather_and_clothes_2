@@ -16,6 +16,7 @@ final weatherFutureProvider = FutureProvider<WeatherState>(((ref) async {
     city: address["results"][0]["address2"],
     temperature: (weather["main"]["temp"]).toInt(),
     weather: weather["weather"][0]["description"],
+    iconStr: weather["weather"][0]["icon"],
   );
   return weatherState;
 }));

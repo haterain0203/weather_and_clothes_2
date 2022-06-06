@@ -13,6 +13,7 @@ _$_WeatherState _$$_WeatherStateFromJson(Map<String, dynamic> json) =>
       city: json['city'] as String,
       temperature: json['temperature'] as int,
       weather: json['weather'] as String,
+      iconStr: json['iconStr'] as String,
     );
 
 Map<String, dynamic> _$$_WeatherStateToJson(_$_WeatherState instance) =>
@@ -22,4 +23,5 @@ Map<String, dynamic> _$$_WeatherStateToJson(_$_WeatherState instance) =>
       'city': instance.city,
       'temperature': instance.temperature,
       'weather': instance.weather,
+      'iconStr': instance.iconStr,
     };
