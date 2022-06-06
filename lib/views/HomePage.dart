@@ -98,7 +98,7 @@ class HomePage extends HookConsumerWidget {
                               //TODO レイアウト的に数字のみフォントを大きくする予定
                               //TODO 可変に
                               HomeDataText(
-                                text: "${data.currentTemperature.toString()}℃",
+                                text: "最高：${data.currentTemperature.toString()}℃",
                                 // text: "20℃",
                               ),
                             ],
@@ -177,7 +177,6 @@ class HomePage extends HookConsumerWidget {
 
   String _compareTemperature(int todayTemp, int yesterdayTemp) {
     final differenceTemp = todayTemp - yesterdayTemp;
-    print(differenceTemp);
     if(differenceTemp <= 1 && differenceTemp >= -1) return "大体同じ";
     if(differenceTemp == 2) return "ちょっとあったかい";
     if(differenceTemp >= 3 && differenceTemp < 5) return "結構あったかい";
