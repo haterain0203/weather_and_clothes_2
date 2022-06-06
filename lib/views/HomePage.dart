@@ -14,7 +14,6 @@ class HomePage extends HookConsumerWidget {
     final _pageIndex = useState(1);
     final _pageController = usePageController(
       viewportFraction: 0.5,
-      //こうすることで、一度設定画面など別ページから戻った際も直前に選択されていたお店が表示されるようになる
       initialPage: _pageIndex.value,
     );
     return Scaffold(
