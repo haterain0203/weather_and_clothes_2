@@ -108,7 +108,7 @@ class HomePage extends HookConsumerWidget {
                           ),
                           Row(
                             mainAxisAlignment: MainAxisAlignment.center,
-                            children: const [
+                            children: [
                               HomeDataText(
                                 text: "昨日と比べて：",
                               ),
@@ -117,7 +117,7 @@ class HomePage extends HookConsumerWidget {
                               ),
                               //TODO 可変に
                               HomeDataText(
-                                text: "ちょっと寒い",
+                                text: _compareTemperature(data.maxTemperature, data.yesterdayMaxTemperature),
                               ),
                             ],
                           ),
@@ -175,5 +175,16 @@ class HomePage extends HookConsumerWidget {
     return "夜";
   }
 
-  // String _compare
+  String _compareTemperature(int todayTemp, int yesterdayTemp) {
+    final differenceTemp = todayTemp - yesterdayTemp;
+    print(differenceTemp);
+    if(differenceTemp <= 1 && differenceTemp >= -1) return "大体同じ";
+    if(differenceTemp == 2) return "ちょっとあったかい";
+    if(differenceTemp >= 3 && differenceTemp < 5) return "結構あったかい";
+    if(differenceTemp >= 5) return "かなりあったかい";
+    if(differenceTemp == -2) return "ちょっと寒い";
+    if(differenceTemp <= -3 && differenceTemp > -5) return "結構寒い";
+    if(differenceTemp < -5) return "かなり寒い";
+    return "";
+  }
 }
