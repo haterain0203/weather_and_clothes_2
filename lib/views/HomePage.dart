@@ -98,7 +98,7 @@ class HomePage extends HookConsumerWidget {
                               //TODO レイアウト的に数字のみフォントを大きくする予定
                               //TODO 可変に
                               HomeDataText(
-                                text: "${data.temperature.toString()}℃",
+                                text: "${data.currentTemperature.toString()}℃",
                                 // text: "20℃",
                               ),
                             ],
