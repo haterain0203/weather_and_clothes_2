@@ -186,4 +186,15 @@ class HomePage extends HookConsumerWidget {
     if(differenceTemp < -5) return "かなり寒い";
     return "";
   }
+
+  String _selectImageURL(int temp) {
+    if(temp >= 30) return "t-shirt.png";
+    if(temp >= 25 && temp < 30) return "shirt.png";
+    if(temp >= 20 && temp < 25) return "long_shirt.png";
+    if(temp >= 16 && temp < 20) return "cardigan.png";
+    if(temp >= 12 && temp < 16) return "sweater.png";
+    if(temp >= 8 && temp < 12) return "trench_coat.png";
+    if(temp >= 5 && temp < 8) return "coat.png";
+    return "down_coat.png";
+  }
 }
