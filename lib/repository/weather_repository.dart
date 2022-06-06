@@ -21,4 +21,23 @@ class WeatherRepository {
     }
   }
 
+  // 郵便番号から天気を取得
+  Future<Map<String, dynamic>> getWeather(String zipCode) async {
+    var _zipCode = "";
+    if(zipCode.contains("-")){
+      _zipCode = zipCode;
+    } else {
+      _zipCode = zipCode.substring(0, 3) + "-" + zipCode.substring(3);
+    }
+    var url = "https://api.openweathermap.org/data/2.5/weather?zip=$_zipCode,JP&appid=b10f2f5d63bee6f33f3ef043ceccb9ae&lang=ja&units=metric";
+    try {
+      var result = await http.get(Uri.parse(url));
+      Map<String, dynamic> data = jsonDecode(result.body);
+      return data;
+    } catch(e) {
+      print(e);
+      return {};
+    }
+  }
+
 }
