@@ -17,7 +17,10 @@ class ClothesAnimatedContainer extends StatelessWidget {
     final double size = active ? 30.h : 12.h;
 
     return AnimatedContainer(
-      color: Colors.grey,
+      decoration: BoxDecoration(
+        borderRadius: BorderRadius.circular(10.0),
+        color: Colors.grey,
+      ),
       duration: const Duration(milliseconds: 800),
       height: size,
       width: size,

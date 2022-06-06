@@ -18,7 +18,7 @@ class HomePage extends HookConsumerWidget {
     //TODO 初期値は現在時刻に応じて変更する？
     final _pageIndex = useState(1);
     final _pageController = usePageController(
-      viewportFraction: 0.5,
+      viewportFraction: 0.50,
       initialPage: _pageIndex.value,
     );
     return Scaffold(
@@ -98,7 +98,7 @@ class HomePage extends HookConsumerWidget {
                               //TODO レイアウト的に数字のみフォントを大きくする予定
                               //TODO 可変に
                               HomeDataText(
-                                text: "最高：${data.currentTemperature.toString()}℃",
+                                text: "最高：${data.maxTemperature.toString()}℃",
                                 // text: "20℃",
                               ),
                             ],
