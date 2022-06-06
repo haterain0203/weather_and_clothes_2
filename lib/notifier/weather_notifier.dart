@@ -18,6 +18,7 @@ final weatherFutureProvider = FutureProvider<WeatherState>(((ref) async {
     temperature: (weather["main"]["temp"]).toInt(),
     weather: weather["weather"][0]["description"],
     iconStr: weather["weather"][0]["icon"],
+    yesterdayMaxTemperature: yesterdayWeather["daily"]["temperature_2m_max"][0],
   );
   return weatherState;
 }));

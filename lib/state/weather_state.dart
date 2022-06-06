@@ -13,6 +13,7 @@ class WeatherState with _$WeatherState {
     required int temperature,
     required String weather,
     required String iconStr,
+    required int yesterdayMaxTemperature,
   }) = _WeatherState;
 
   factory WeatherState.fromJson(Map<String, dynamic> json) =>
