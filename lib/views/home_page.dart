@@ -51,8 +51,10 @@ class HomePage extends HookConsumerWidget {
       ),
       body: weatherState.when(
         loading: () => const Center(child: CircularProgressIndicator()),
-        error: (error, stack) =>
-            Center(child: Text("データ取得時にエラーが発生しました: $error")),
+        error: (error, stack) {
+          print("error = $error");
+          return Center(child: Text("データ取得時にエラーが発生しました: $error"));
+        },
         data: (data) {
           print("data = $data");
             return SafeArea(
