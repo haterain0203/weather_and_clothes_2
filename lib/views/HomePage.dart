@@ -12,6 +12,7 @@ class HomePage extends HookConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
+    //TODO 初期値は現在時刻に応じて変更する？
     final _pageIndex = useState(1);
     final _pageController = usePageController(
       viewportFraction: 0.5,
