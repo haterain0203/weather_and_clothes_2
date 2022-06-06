@@ -65,22 +65,20 @@ class HomePage extends StatelessWidget {
                       children: [
                         //TODO 可変に
                         const HomeDataText(
-                          text: "2月3日（木）",
+                          text: "6月6日（月）",
                         ),
+                        const SizedBox(width: 12.0,),
                         //TODO 天気に合わせて画像を変更する
-                        SizedBox(
-                          width: 50.0,
-                          height: 50.0,
-                          // child: Image.asset("assets/images/sun.png"),
+                        Icon(
+                          Icons.cloud,
+                          size: 28.0,
                         ),
-                        const SizedBox(
-                          width: 20.0,
-                        ),
+                        const SizedBox(width: 20.0,),
                         //TODO 取得した気温を表示する
                         //TODO レイアウト的に数字のみフォントを大きくする予定
                         //TODO 可変に
                         const HomeDataText(
-                          text: "10℃",
+                          text: "20℃",
                         ),
                       ],
                     ),
@@ -91,7 +89,7 @@ class HomePage extends StatelessWidget {
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: const [
                         HomeDataText(
-                          text: "昨日との比較",
+                          text: "昨日と比べて：",
                         ),
                         SizedBox(
                           width: 16.0,
