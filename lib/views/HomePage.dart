@@ -7,10 +7,29 @@ class HomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       body: SafeArea(
-        child: Column(
-          children: [
-            
-          ],
+        child: Padding(
+          padding: const EdgeInsets.all(8.0),
+          child: Column(
+            children: [
+              Row(
+                mainAxisAlignment: MainAxisAlignment.end,
+                children: [
+                  IconButton(
+                    onPressed: () {
+                      //TODO 押下処理
+                    },
+                    icon: Icon(Icons.settings),
+                  ),
+                  IconButton(
+                    onPressed: () {
+                      //TODO 押下処理
+                    },
+                    icon: Icon(Icons.share),
+                  ),
+                ],
+              )
+            ],
+          ),
         ),
       ),
     );
