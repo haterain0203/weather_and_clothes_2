@@ -172,11 +172,25 @@ class HomePage extends HookConsumerWidget {
                             return Column(
                               mainAxisAlignment: MainAxisAlignment.center,
                               children: [
-                                Text(
-                                  timeString,
-                                  style: TextStyle(
-                                    fontSize: 14.sp,
-                                  ),
+                                Row(
+                                  mainAxisAlignment: MainAxisAlignment.center,
+                                  children: [
+                                    Text(
+                                      timeString,
+                                      style: TextStyle(
+                                        fontSize: 14.sp,
+                                      ),
+                                    ),
+                                    SizedBox(width: 16.0,),
+                                    Text(
+                                      maxTemperature.toString(),
+                                      style: TextStyle(
+                                        fontSize: 18.sp,
+                                        color: Color(0xFFF78611),
+                                      ),
+                                    ),
+                                    Text("℃"),
+                                  ],
                                 ),
                                 ClothesAnimatedContainer(active: active, imageURL: imageURL,)
                               ],
