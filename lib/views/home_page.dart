@@ -81,6 +81,7 @@ class HomePage extends HookConsumerWidget {
                         height: 300.0,
                         viewportFraction: 0.65,
                         enlargeCenterPage: true,
+                        initialPage: _setInitialPage(today.value),
                       ),
                       items: [0,1,2,].map((i) {
                         final timeStr = _setTimeString(i);
@@ -159,6 +160,12 @@ class HomePage extends HookConsumerWidget {
     final dateFormatDayOfWeek = DateFormat.E('ja');
     final strDayOfWeek = dateFormatDayOfWeek.format(today);
     return strDate + "(" + strDayOfWeek + ")";
+  }
+
+  int _setInitialPage(DateTime now) {
+    if(now.hour < 10) return 0;
+    if(now.hour >= 10 && now.hour < 18) return 1;
+    return 2;
   }
 
 }
