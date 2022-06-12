@@ -9,6 +9,7 @@ import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:sizer/sizer.dart';
 import 'package:weather_and_clothes_2/components/address_part.dart';
 import 'package:weather_and_clothes_2/components/clothes_container.dart';
+import 'package:weather_and_clothes_2/components/compare_yesterday_part.dart';
 import 'package:weather_and_clothes_2/components/weather_info_part.dart';
 import 'package:weather_and_clothes_2/notifier/weather_notifier.dart';
 import 'package:weather_and_clothes_2/state/weather_state.dart';
@@ -78,21 +79,7 @@ class HomePage extends HookConsumerWidget {
                           AddressPart(weatherData: data),
                           //DateArea
                           WeatherInfoPart(weatherData: data),
-                          Row(
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            children: [
-                              HomeDataText(
-                                text: "昨日と比べて：",
-                              ),
-                              SizedBox(
-                                width: 16.0,
-                              ),
-                              //TODO 可変に
-                              HomeDataText(
-                                text: _compareTemperature(data.maxTemperature, data.yesterdayMaxTemperature),
-                              ),
-                            ],
-                          ),
+                          CompareYesterdayPart(weatherData: data),
                         ],
                       ),
                     ),
@@ -155,18 +142,6 @@ class HomePage extends HookConsumerWidget {
     if(index == 0) return "朝";
     if(index == 1) return "昼";
     return "夜";
-  }
-
-  String _compareTemperature(int todayTemp, int yesterdayTemp) {
-    final differenceTemp = todayTemp - yesterdayTemp;
-    if(differenceTemp <= 1 && differenceTemp >= -1) return "大体同じ";
-    if(differenceTemp == 2) return "ちょっとあったかい";
-    if(differenceTemp >= 3 && differenceTemp < 5) return "結構あったかい";
-    if(differenceTemp >= 5) return "かなりあったかい";
-    if(differenceTemp == -2) return "ちょっと寒い";
-    if(differenceTemp <= -3 && differenceTemp > -5) return "結構寒い";
-    if(differenceTemp < -5) return "かなり寒い";
-    return "";
   }
 
   int _selectMaxTemperature(WeatherState weather, int index) {
