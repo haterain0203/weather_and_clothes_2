@@ -18,12 +18,6 @@ class HomePage extends HookConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final weatherState = ref.watch(weatherFutureProvider);
-    //TODO 初期値は現在時刻に応じて変更する？
-    final _pageIndex = useState(1);
-    final _pageController = usePageController(
-      viewportFraction: 0.50,
-      initialPage: _pageIndex.value,
-    );
     final today = useState(DateTime.now());
     return Scaffold(
       appBar: AppBar(
