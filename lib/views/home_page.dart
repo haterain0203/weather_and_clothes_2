@@ -88,7 +88,7 @@ class HomePage extends HookConsumerWidget {
                     //TODO 取得したデータに合わせて画像を切り替え
                     CarouselSlider(
                       options: CarouselOptions(
-                        height: 350.0,
+                        height: 300.0,
                         viewportFraction: 0.65,
                         enlargeCenterPage: true,
                       ),
