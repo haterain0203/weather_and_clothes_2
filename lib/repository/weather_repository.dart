@@ -1,7 +1,5 @@
 import 'dart:convert';
-
 import 'package:http/http.dart' as http;
-import 'package:weather_and_clothes_2/state/weather_state.dart';
 
 class WeatherRepository {
 
