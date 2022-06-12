@@ -2,6 +2,7 @@ import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
+import 'package:intl/intl.dart';
 import 'package:sizer/sizer.dart';
 import 'package:weather_and_clothes_2/components/address_part.dart';
 import 'package:weather_and_clothes_2/components/clothes_container.dart';
@@ -23,13 +24,18 @@ class HomePage extends HookConsumerWidget {
       viewportFraction: 0.50,
       initialPage: _pageIndex.value,
     );
+    final today = useState(DateTime.now());
+    final dateFormat = DateFormat('yyyy-MM-dd');
+    final strDate = dateFormat.format(today.value);
+    final dateFormatDayOfWeek = DateFormat.E('ja');
+    final strDayOfWeek = dateFormatDayOfWeek.format(today.value);
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Color(0xFF003569),
         //TODO 本日の日付を取得して表示
         //TODO レイアウト的に数字のみフォントを大きくする予定
-        title: const Text(
-          "6月6日（月）",
+        title: Text(
+          strDate + "(" + strDayOfWeek + ")",
           style: TextStyle(
             color: Colors.white,
             fontWeight: FontWeight.bold,
