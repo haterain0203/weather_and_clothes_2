@@ -1,6 +1,8 @@
 import 'dart:math';
 
 import 'package:cached_network_image/cached_network_image.dart';
+import 'package:carousel_slider/carousel_slider.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
@@ -152,56 +154,49 @@ class HomePage extends HookConsumerWidget {
                     ),
                     //ClothesArea
                     //TODO 取得したデータに合わせて画像を切り替え
-                    Expanded(
-                      child: RoundedCornerContainer(
-                        color: Colors.white,
-                        //TODO Animationでぬるっとさせたい
-                        child: PageView.builder(
-                          controller: _pageController,
-                          onPageChanged: (index) {
-                            _pageIndex.value = index;
-                          },
-                          itemCount: 3,
-                          itemBuilder: (context, index) {
-                            final timeString = _setTimeString(index);
-                            //TODO 朝昼夜で使い分け
-                            final maxTemperature = _selectMaxTemperature(data, index);
-                            final imageURL = _selectImageURL(maxTemperature);
-                            // アクティブ値
-                            bool active = _pageIndex.value == index;
-                            return Column(
+                    CarouselSlider(
+                      options: CarouselOptions(
+                        height: 350.0,
+                        viewportFraction: 0.65,
+                        enlargeCenterPage: true,
+                      ),
+                      items: [0,1,2,].map((i) {
+                        final timeStr = _setTimeString(i);
+                        final maxTemp = _selectMaxTemperature(data, i);
+                        final imageURL = _selectImageURL(maxTemp);
+                        return Column(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          mainAxisSize: MainAxisSize.min,
+                          children: [
+                            Row(
                               mainAxisAlignment: MainAxisAlignment.center,
                               children: [
-                                Row(
-                                  mainAxisAlignment: MainAxisAlignment.center,
-                                  children: [
-                                    Text(
-                                      timeString,
-                                      style: TextStyle(
-                                        fontSize: 14.sp,
-                                      ),
-                                    ),
-                                    SizedBox(width: 16.0,),
-                                    Text(
-                                      maxTemperature.toString(),
-                                      style: TextStyle(
-                                        fontSize: 18.sp,
-                                        color: Color(0xFFF78611),
-                                      ),
-                                    ),
-                                    Text("℃"),
-                                  ],
+                                Text(
+                                  timeStr,
+                                  style: TextStyle(
+                                    fontSize: 14.sp,
+                                  ),
                                 ),
-                                ClothesAnimatedContainer(active: active, imageURL: imageURL,)
+                                SizedBox(width: 16.0,),
+                                Text(
+                                  maxTemp.toString(),
+                                  style: TextStyle(
+                                    fontSize: 18.sp,
+                                    color: Color(0xFFF78611),
+                                  ),
+                                ),
+                                Text("℃"),
                               ],
-                            );
-                          },
-                        ),
-                      ),
-                    ),
-                    RoundedCornerContainer(
-                      height: 15.h,
-                      color: Colors.grey.shade200,
+                            ),
+                            RoundedCornerContainer(
+                              color: Colors.white,
+                              child: ClothesAnimatedContainer(
+                                imageURL: imageURL,
+                              ),
+                            ),
+                          ],
+                        );
+                      }).toList(),
                     ),
                   ],
                 ),
