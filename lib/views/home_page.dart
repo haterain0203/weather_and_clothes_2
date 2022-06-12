@@ -25,17 +25,13 @@ class HomePage extends HookConsumerWidget {
       initialPage: _pageIndex.value,
     );
     final today = useState(DateTime.now());
-    final dateFormat = DateFormat('yyyy-MM-dd');
-    final strDate = dateFormat.format(today.value);
-    final dateFormatDayOfWeek = DateFormat.E('ja');
-    final strDayOfWeek = dateFormatDayOfWeek.format(today.value);
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Color(0xFF003569),
         //TODO 本日の日付を取得して表示
         //TODO レイアウト的に数字のみフォントを大きくする予定
         title: Text(
-          strDate + "(" + strDayOfWeek + ")",
+          _setTodayStr(today.value),
           style: TextStyle(
             color: Colors.white,
             fontWeight: FontWeight.bold,
@@ -161,6 +157,14 @@ class HomePage extends HookConsumerWidget {
     if(temp >= 8 && temp < 12) return baseURL + "trench_coat.png";
     if(temp >= 5 && temp < 8) return baseURL + "coat.png";
     return baseURL + "down_coat.png";
+  }
+
+  String _setTodayStr(DateTime today) {
+    final dateFormat = DateFormat('yyyy-MM-dd');
+    final strDate = dateFormat.format(today);
+    final dateFormatDayOfWeek = DateFormat.E('ja');
+    final strDayOfWeek = dateFormatDayOfWeek.format(today);
+    return strDate + "(" + strDayOfWeek + ")";
   }
 
 }
