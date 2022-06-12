@@ -75,7 +75,6 @@ class HomePage extends HookConsumerWidget {
                       ),
                     ),
                     //ClothesArea
-                    //TODO initialPageは今の時間に合わせたい
                     CarouselSlider(
                       options: CarouselOptions(
                         height: 300.0,
