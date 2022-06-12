@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:sizer/sizer.dart';
 
-class ClothesAnimatedContainer extends StatelessWidget {
-  const ClothesAnimatedContainer({
+class ClothesContainer extends StatelessWidget {
+  const ClothesContainer({
     required this.imageURL,
     Key? key,
   }) : super(key: key);

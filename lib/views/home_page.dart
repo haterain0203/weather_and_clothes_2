@@ -7,7 +7,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:sizer/sizer.dart';
-import 'package:weather_and_clothes_2/components/clothes_animated_container.dart';
+import 'package:weather_and_clothes_2/components/clothes_container.dart';
 import 'package:weather_and_clothes_2/notifier/weather_notifier.dart';
 import 'package:weather_and_clothes_2/state/weather_state.dart';
 
@@ -190,7 +190,7 @@ class HomePage extends HookConsumerWidget {
                             ),
                             RoundedCornerContainer(
                               color: Colors.white,
-                              child: ClothesAnimatedContainer(
+                              child: ClothesContainer(
                                 imageURL: imageURL,
                               ),
                             ),
