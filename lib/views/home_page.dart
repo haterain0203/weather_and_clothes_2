@@ -79,7 +79,7 @@ class HomePage extends HookConsumerWidget {
                       ),
                     ),
                     //ClothesArea
-                    //TODO 取得したデータに合わせて画像を切り替え
+                    //TODO initialPageは今の時間に合わせたい
                     CarouselSlider(
                       options: CarouselOptions(
                         height: 300.0,

@@ -15,7 +15,6 @@ class ClothesContainer extends StatelessWidget {
         borderRadius: BorderRadius.circular(10.0),
         color: Color(0xFF003569).withOpacity(0.1),
       ),
-      //TODO 洋服の画像が入ります
       child: Image.asset(
         imageURL,
         fit: BoxFit.scaleDown,

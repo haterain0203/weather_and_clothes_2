@@ -17,7 +17,6 @@ class AddressPart extends StatelessWidget {
       Row(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          //TODO 可変に
           HomeDataText(
             text: "〒${weatherData.postalCode.toString()}",
             // text: "〒000-0000",
@@ -25,7 +24,6 @@ class AddressPart extends StatelessWidget {
           SizedBox(
             width: 16.0,
           ),
-          //TODO 可変に
           HomeDataText(
             text: weatherData.prefecture + weatherData.city,
             // text: "東京都xx区",

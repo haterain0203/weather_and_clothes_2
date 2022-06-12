@@ -16,7 +16,6 @@ class WeatherInfoPart extends StatelessWidget {
     return Row(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
-        //TODO 天気に合わせて画像を変更する
         SizedBox(
           height: 10.h,
           width: 10.h,
@@ -26,9 +25,6 @@ class WeatherInfoPart extends StatelessWidget {
           ),
         ),
         const SizedBox(width: 20.0,),
-        //TODO 取得した気温を表示する
-        //TODO レイアウト的に数字のみフォントを大きくする予定
-        //TODO 可変に
         RichText(
           text: TextSpan(
               style: TextStyle(
