@@ -77,8 +77,9 @@ class HomePage extends HookConsumerWidget {
                         children: [
                           //AddressArea
                           AddressPart(weatherData: data),
-                          //DateArea
+                          //天気情報部分
                           WeatherInfoPart(weatherData: data),
+                          //昨日と比べて部分
                           CompareYesterdayPart(weatherData: data),
                         ],
                       ),
