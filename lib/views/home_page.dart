@@ -7,6 +7,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:sizer/sizer.dart';
+import 'package:weather_and_clothes_2/components/address_part.dart';
 import 'package:weather_and_clothes_2/components/clothes_container.dart';
 import 'package:weather_and_clothes_2/notifier/weather_notifier.dart';
 import 'package:weather_and_clothes_2/state/weather_state.dart';
@@ -73,25 +74,7 @@ class HomePage extends HookConsumerWidget {
                       child: Column(
                         children: [
                           //AddressArea
-                          //TODO 設定画面で入力された郵便番号と住所を取得して表示
-                          Row(
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            children: [
-                              //TODO 可変に
-                              HomeDataText(
-                                text: "〒${data.postalCode.toString()}",
-                                // text: "〒000-0000",
-                              ),
-                              SizedBox(
-                                width: 16.0,
-                              ),
-                              //TODO 可変に
-                              HomeDataText(
-                                text: data.prefecture + data.city,
-                                // text: "東京都xx区",
-                              ),
-                            ],
-                          ),
+                          AddressPart(weatherData: data),
                           //DateArea
                           Row(
                             mainAxisAlignment: MainAxisAlignment.center,
