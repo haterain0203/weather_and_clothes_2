@@ -10,6 +10,7 @@ import 'package:weather_and_clothes_2/components/compare_yesterday_part.dart';
 import 'package:weather_and_clothes_2/components/weather_info_part.dart';
 import 'package:weather_and_clothes_2/notifier/weather_notifier.dart';
 import 'package:weather_and_clothes_2/state/weather_state.dart';
+import '../components/forecast_part.dart';
 import '../components/rounded_corner_container.dart';
 
 class HomePage extends HookConsumerWidget {
@@ -120,6 +121,7 @@ class HomePage extends HookConsumerWidget {
                         );
                       }).toList(),
                     ),
+                    ForecastPart(),
                   ],
                 ),
               ),
