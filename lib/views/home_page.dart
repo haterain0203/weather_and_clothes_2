@@ -19,14 +19,17 @@ class HomePage extends HookConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final weatherState = ref.watch(weatherFutureProvider);
-    final today = useState(DateTime.now());
+    final today = DateTime.now();
+    final tomorrow = today.add(Duration(days: 1));
+    final dayAfterTomorrow = today.add(Duration(days: 2));
+
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Color(0xFF003569),
         //TODO 本日の日付を取得して表示
         //TODO レイアウト的に数字のみフォントを大きくする予定
         title: Text(
-          _setTodayStr(today.value),
+          _setDateStr(today),
           style: TextStyle(
             color: Colors.white,
             fontWeight: FontWeight.bold,
@@ -82,7 +85,7 @@ class HomePage extends HookConsumerWidget {
                           height: 300.0,
                           viewportFraction: 0.65,
                           enlargeCenterPage: true,
-                          initialPage: _setInitialPage(today.value),
+                          initialPage: _setInitialPage(today),
                         ),
                         items: [0,1,2,].map((i) {
                           final timeStr = _setTimeString(i);
@@ -123,7 +126,19 @@ class HomePage extends HookConsumerWidget {
                         }).toList(),
                       ),
                     ),
-                    ForecastPart(weather: data,),
+                    Row(
+                      children: [
+                        ForecastPart(
+                          weather: data,
+                          dateStr: _setDateStr(tomorrow),
+                        ),
+                        SizedBox(width: 16.0,),
+                        ForecastPart(
+                          weather: data,
+                          dateStr: _setDateStr(dayAfterTomorrow),
+                        ),
+                      ],
+                    ),
                   ],
                 ),
               ),
@@ -157,8 +172,8 @@ class HomePage extends HookConsumerWidget {
     return baseURL + "down_coat.png";
   }
 
-  String _setTodayStr(DateTime today) {
-    final dateFormat = DateFormat('yyyy-MM-dd');
+  String _setDateStr(DateTime today) {
+    final dateFormat = DateFormat('M/d');
     final strDate = dateFormat.format(today);
     final dateFormatDayOfWeek = DateFormat.E('ja');
     final strDayOfWeek = dateFormatDayOfWeek.format(today);
