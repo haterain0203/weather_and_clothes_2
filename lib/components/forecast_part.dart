@@ -27,7 +27,7 @@ class ForecastPart extends StatelessWidget {
             color: Colors.white,
             child: Column(
               children: [
-                Container(
+                RoundedCornerContainer(
                   //TODO テーマカラーに
                   color: Color(0xFF003569),
                   child: Center(
@@ -77,12 +77,13 @@ class ForecastPart extends StatelessWidget {
           ),
         ),
         SizedBox(width: 16.0,),
+        //TODO 明日の部分と基本一緒なので要コンポーネント化
         Expanded(
           child: RoundedCornerContainer(
             color: Colors.white,
             child: Column(
               children: [
-                Container(
+                RoundedCornerContainer(
                   //TODO テーマカラーに
                   color: Color(0xFF003569),
                   child: Center(
