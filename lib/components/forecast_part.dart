@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:intl/intl.dart';
 import 'package:sizer/sizer.dart';
 import 'package:weather_and_clothes_2/components/rounded_corner_container.dart';
-import 'package:weather_and_clothes_2/components/weather_info_part.dart';
 import 'package:weather_and_clothes_2/state/weather_state.dart';
 
 import 'clothes_container.dart';
