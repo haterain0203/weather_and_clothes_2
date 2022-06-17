@@ -76,52 +76,54 @@ class HomePage extends HookConsumerWidget {
                       ),
                     ),
                     //ClothesArea
-                    CarouselSlider(
-                      options: CarouselOptions(
-                        height: 300.0,
-                        viewportFraction: 0.65,
-                        enlargeCenterPage: true,
-                        initialPage: _setInitialPage(today.value),
-                      ),
-                      items: [0,1,2,].map((i) {
-                        final timeStr = _setTimeString(i);
-                        final maxTemp = _selectMaxTemperature(data, i);
-                        final imageURL = _selectImageURL(maxTemp);
-                        return Column(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          mainAxisSize: MainAxisSize.min,
-                          children: [
-                            Row(
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              children: [
-                                Text(
-                                  timeStr,
-                                  style: TextStyle(
-                                    fontSize: 14.sp,
+                    Expanded(
+                      child: CarouselSlider(
+                        options: CarouselOptions(
+                          height: 300.0,
+                          viewportFraction: 0.65,
+                          enlargeCenterPage: true,
+                          initialPage: _setInitialPage(today.value),
+                        ),
+                        items: [0,1,2,].map((i) {
+                          final timeStr = _setTimeString(i);
+                          final maxTemp = _selectMaxTemperature(data, i);
+                          final imageURL = _selectImageURL(maxTemp);
+                          return Column(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            mainAxisSize: MainAxisSize.min,
+                            children: [
+                              Row(
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                children: [
+                                  Text(
+                                    timeStr,
+                                    style: TextStyle(
+                                      fontSize: 14.sp,
+                                    ),
                                   ),
-                                ),
-                                SizedBox(width: 16.0,),
-                                Text(
-                                  maxTemp.toString(),
-                                  style: TextStyle(
-                                    fontSize: 18.sp,
-                                    color: Color(0xFFF78611),
+                                  SizedBox(width: 16.0,),
+                                  Text(
+                                    maxTemp.toString(),
+                                    style: TextStyle(
+                                      fontSize: 18.sp,
+                                      color: Color(0xFFF78611),
+                                    ),
                                   ),
-                                ),
-                                Text("℃"),
-                              ],
-                            ),
-                            RoundedCornerContainer(
-                              color: Colors.white,
-                              child: ClothesContainer(
-                                imageURL: imageURL,
+                                  Text("℃"),
+                                ],
                               ),
-                            ),
-                          ],
-                        );
-                      }).toList(),
+                              RoundedCornerContainer(
+                                color: Colors.white,
+                                child: ClothesContainer(
+                                  imageURL: imageURL,
+                                ),
+                              ),
+                            ],
+                          );
+                        }).toList(),
+                      ),
                     ),
-                    ForecastPart(),
+                    ForecastPart(weather: data,),
                   ],
                 ),
               ),
