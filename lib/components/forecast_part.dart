@@ -36,7 +36,7 @@ class ForecastPart extends StatelessWidget {
                 ),
               ),
             ),
-            const SizedBox(height: 16.0,),
+            const SizedBox(height: 8.0,),
             //天気情報部分
             RichText(
               text: TextSpan(
