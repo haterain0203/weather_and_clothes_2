@@ -16,10 +16,10 @@ class CompareYesterdayPart extends StatelessWidget {
     return Row(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
-        HomeDataText(
+        const HomeDataText(
           text: "昨日と比べて：",
         ),
-        SizedBox(
+        const SizedBox(
           width: 16.0,
         ),
         //TODO 可変に

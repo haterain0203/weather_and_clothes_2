@@ -26,17 +26,17 @@ class ForecastPart extends StatelessWidget {
           children: [
             RoundedCornerContainer(
               //TODO テーマカラーに
-              color: Color(0xFF003569),
+              color: const Color(0xFF003569),
               child: Center(
                 child: Text(
                   dateStr,
-                  style: TextStyle(
+                  style: const TextStyle(
                     color: Colors.white,
                   ),
                 ),
               ),
             ),
-            SizedBox(height: 16.0,),
+            const SizedBox(height: 16.0,),
             //天気情報部分
             RichText(
               text: TextSpan(
@@ -45,7 +45,7 @@ class ForecastPart extends StatelessWidget {
                     fontSize: 10.sp,
                   ),
                   children: [
-                    TextSpan(
+                    const TextSpan(
                         text: "最高："
                     ),
                     TextSpan(
@@ -53,10 +53,10 @@ class ForecastPart extends StatelessWidget {
                       text: weather.maxTemperature.toString(),
                       style: TextStyle(
                         fontSize: 14.sp,
-                        color: Color(0xFFF78611),
+                        color: const Color(0xFFF78611),
                       ),
                     ),
-                    TextSpan(
+                    const TextSpan(
                       text: "℃",
                     ),
                   ]

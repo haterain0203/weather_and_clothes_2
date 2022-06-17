@@ -32,17 +32,17 @@ class WeatherInfoPart extends StatelessWidget {
                 fontSize: 13.sp,
               ),
               children: [
-                TextSpan(
+                const TextSpan(
                     text: "最高："
                 ),
                 TextSpan(
                   text: weatherData.maxTemperature.toString(),
                   style: TextStyle(
                     fontSize: 24.sp,
-                    color: Color(0xFFF78611),
+                    color: const Color(0xFFF78611),
                   ),
                 ),
-                TextSpan(
+                const TextSpan(
                   text: "℃",
                 ),
               ]

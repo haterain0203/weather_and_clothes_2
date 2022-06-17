@@ -13,7 +13,7 @@ class ClothesContainer extends StatelessWidget {
     return Container(
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(10.0),
-        color: Color(0xFF003569).withOpacity(0.1),
+        color: const Color(0xFF003569).withOpacity(0.1),
       ),
       child: Image.asset(
         imageURL,

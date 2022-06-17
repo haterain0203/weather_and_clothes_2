@@ -21,7 +21,7 @@ class AddressPart extends StatelessWidget {
             text: "〒${weatherData.postalCode.toString()}",
             // text: "〒000-0000",
           ),
-          SizedBox(
+          const SizedBox(
             width: 16.0,
           ),
           HomeDataText(

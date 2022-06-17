@@ -20,17 +20,17 @@ class HomePage extends HookConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     final weatherState = ref.watch(weatherFutureProvider);
     final today = DateTime.now();
-    final tomorrow = today.add(Duration(days: 1));
-    final dayAfterTomorrow = today.add(Duration(days: 2));
+    final tomorrow = today.add(const Duration(days: 1));
+    final dayAfterTomorrow = today.add(const Duration(days: 2));
 
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Color(0xFF003569),
+        backgroundColor: const Color(0xFF003569),
         //TODO 本日の日付を取得して表示
         //TODO レイアウト的に数字のみフォントを大きくする予定
         title: Text(
           _setDateStr(today),
-          style: TextStyle(
+          style: const TextStyle(
             color: Colors.white,
             fontWeight: FontWeight.bold,
           ),
@@ -41,13 +41,13 @@ class HomePage extends HookConsumerWidget {
             onPressed: () {
               //TODO 押下処理
             },
-            icon: Icon(Icons.settings),
+            icon: const Icon(Icons.settings),
           ),
           IconButton(
             onPressed: () {
               //TODO 押下処理
             },
-            icon: Icon(Icons.share),
+            icon: const Icon(Icons.share),
           ),
         ],
       ),
@@ -104,15 +104,15 @@ class HomePage extends HookConsumerWidget {
                                       fontSize: 14.sp,
                                     ),
                                   ),
-                                  SizedBox(width: 16.0,),
+                                  const SizedBox(width: 16.0,),
                                   Text(
                                     maxTemp.toString(),
                                     style: TextStyle(
                                       fontSize: 18.sp,
-                                      color: Color(0xFFF78611),
+                                      color: const Color(0xFFF78611),
                                     ),
                                   ),
-                                  Text("℃"),
+                                  const Text("℃"),
                                 ],
                               ),
                               RoundedCornerContainer(
@@ -134,7 +134,7 @@ class HomePage extends HookConsumerWidget {
                           //TODO 明日の最高気温に変更
                           imageUrl: _selectImageURL(data.maxTemperature),
                         ),
-                        SizedBox(width: 16.0,),
+                        const SizedBox(width: 16.0,),
                         ForecastPart(
                           weather: data,
                           dateStr: _setDateStr(dayAfterTomorrow),
