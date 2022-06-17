@@ -14,7 +14,7 @@ class HomeDataText extends StatelessWidget {
     return Text(
       text,
       style: TextStyle(
-        fontSize: 13.sp,
+        fontSize: 12.sp,
       ),
     );
   }

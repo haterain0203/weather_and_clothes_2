@@ -19,23 +19,20 @@ class RoundedCornerContainer extends StatelessWidget {
   final Widget? child;
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.symmetric(vertical: 4.0),
-      child: InkWell(
-        onTap: onTap,
-        child: Container(
-          //height指定がない場合は160.0
-          height: height,
-          //width指定がない場合は画面横幅いっぱい
-          width: width ?? double.infinity,
-          decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(10.0),
-            //color指定がない場合はホワイト
-            color: color ?? Colors.white,
-          ),
-          padding: padding,
-          child: child,
+    return InkWell(
+      onTap: onTap,
+      child: Container(
+        //height指定がない場合は160.0
+        height: height,
+        //width指定がない場合は画面横幅いっぱい
+        width: width ?? double.infinity,
+        decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(10.0),
+          //color指定がない場合はホワイト
+          color: color ?? Colors.white,
         ),
+        padding: padding,
+        child: child,
       ),
     );
   }
