@@ -131,11 +131,15 @@ class HomePage extends HookConsumerWidget {
                         ForecastPart(
                           weather: data,
                           dateStr: _setDateStr(tomorrow),
+                          //TODO 明日の最高気温に変更
+                          imageUrl: _selectImageURL(data.maxTemperature),
                         ),
                         SizedBox(width: 16.0,),
                         ForecastPart(
                           weather: data,
                           dateStr: _setDateStr(dayAfterTomorrow),
+                          //TODO 明後日の最高気温に変更
+                          imageUrl: _selectImageURL(data.maxTemperature),
                         ),
                       ],
                     ),

@@ -11,11 +11,13 @@ class ForecastPart extends StatelessWidget {
   const ForecastPart({
     required this.weather,
     required this.dateStr,
+    required this.imageUrl,
     Key? key,
   }) : super(key: key);
 
   final WeatherState weather;
   final String dateStr;
+  final String imageUrl;
 
   @override
   Widget build(BuildContext context) {
@@ -66,26 +68,13 @@ class ForecastPart extends StatelessWidget {
               padding: const EdgeInsets.all(16.0),
               child: ClothesContainer(
                 //TODO 翌日の最高気温に
-                imageURL: _selectImageURL(weather.maxTemperature),
+                imageURL: imageUrl,
               ),
             ),
           ],
         ),
       ),
     );
-  }
-
-  //TODO HomePageでも同じ関数使ってる
-  String _selectImageURL(int temp) {
-    const baseURL = "assets/images/";
-    if(temp >= 30) return baseURL + "t-shirt.png";
-    if(temp >= 25 && temp < 30) return baseURL + "shirt.png";
-    if(temp >= 20 && temp < 25) return baseURL + "long_shirt.png";
-    if(temp >= 16 && temp < 20) return baseURL + "cardigan.png";
-    if(temp >= 12 && temp < 16) return baseURL + "sweater.png";
-    if(temp >= 8 && temp < 12) return baseURL + "trench_coat.png";
-    if(temp >= 5 && temp < 8) return baseURL + "coat.png";
-    return baseURL + "down_coat.png";
   }
 
 }
