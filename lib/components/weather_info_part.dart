@@ -5,11 +5,11 @@ import 'package:weather_and_clothes_2/state/home_page_state.dart';
 
 class WeatherInfoPart extends StatelessWidget {
   const WeatherInfoPart({
-    required this.weatherData,
+    required this.homePageData,
     Key? key,
   }) : super(key: key);
   
-  final WeatherState weatherData;
+  final HomePageState homePageData;
 
   @override
   Widget build(BuildContext context) {
@@ -20,7 +20,7 @@ class WeatherInfoPart extends StatelessWidget {
           height: 10.h,
           width: 10.h,
           child: CachedNetworkImage(
-            imageUrl: "http://openweathermap.org/img/wn/${weatherData.iconStr}.png",
+            imageUrl: "http://openweathermap.org/img/wn/${homePageData.openWeather.descAndIcon[0].icon}.png",
             fit: BoxFit.contain,
           ),
         ),
@@ -36,7 +36,7 @@ class WeatherInfoPart extends StatelessWidget {
                     text: "最高："
                 ),
                 TextSpan(
-                  text: weatherData.maxTemperature.toString(),
+                  text: homePageData.openMeteo.daily.apparentTemperatureMax[1],
                   style: TextStyle(
                     fontSize: 24.sp,
                     color: const Color(0xFFF78611),
