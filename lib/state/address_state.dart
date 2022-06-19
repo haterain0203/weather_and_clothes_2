@@ -20,6 +20,7 @@ class AddressResults with _$AddressResults {
     @JsonKey(name: 'address1') required String prefecture,
     @JsonKey(name: 'address2') required String city,
     @JsonKey(name: 'address3') required String town,
+    required String zipCode,
   }) = _AddressResults;
 
   factory AddressResults.fromJson(Map<String, dynamic> json) =>
