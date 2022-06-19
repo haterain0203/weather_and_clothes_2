@@ -18,7 +18,7 @@ class HomePage extends HookConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final weatherState = ref.watch(weatherFutureProvider);
+    final homePageState = ref.watch(homePageFutureProvider);
     final today = DateTime.now();
     final tomorrow = today.add(const Duration(days: 1));
     final dayAfterTomorrow = today.add(const Duration(days: 2));
@@ -51,7 +51,7 @@ class HomePage extends HookConsumerWidget {
           ),
         ],
       ),
-      body: weatherState.when(
+      body: homePageState.when(
         loading: () => const Center(child: CircularProgressIndicator()),
         error: (error, stack) {
           print("error = $error");
@@ -132,14 +132,14 @@ class HomePage extends HookConsumerWidget {
                           weather: data,
                           dateStr: _setDateStr(tomorrow),
                           //TODO 明日の最高気温に変更
-                          imageUrl: _selectImageURL(data.maxTemperature),
+                          imageUrl: _selectImageURL(data.openMeteo.daily.apparentTemperatureMax[0]),
                         ),
                         const SizedBox(width: 16.0,),
                         ForecastPart(
                           weather: data,
                           dateStr: _setDateStr(dayAfterTomorrow),
                           //TODO 明後日の最高気温に変更
-                          imageUrl: _selectImageURL(data.maxTemperature),
+                          imageUrl: _selectImageURL(data.openMeteo.daily.apparentTemperatureMax[0]),
                         ),
                       ],
                     ),
@@ -158,10 +158,10 @@ class HomePage extends HookConsumerWidget {
     return "夜";
   }
 
-  int _selectMaxTemperature(WeatherState weather, int index) {
-    if(index == 0) return weather.morningTemperature;
-    if(index == 1) return weather.afternoonTemperature;
-    return weather.eveningTemperature;
+  int _selectMaxTemperature(HomePageState state, int index) {
+    if(index == 0) return state.openMeteo.hourly.apparentTemperature[32];
+    if(index == 1) return state.openMeteo.hourly.apparentTemperature[39];
+    return state.openMeteo.hourly.apparentTemperature[44];
   }
 
   String _selectImageURL(int temp) {
