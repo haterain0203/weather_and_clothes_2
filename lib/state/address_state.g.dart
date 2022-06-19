@@ -8,7 +8,9 @@ part of 'address_state.dart';
 
 _$_AddressState _$$_AddressStateFromJson(Map<String, dynamic> json) =>
     _$_AddressState(
-      results: AddressResults.fromJson(json['results'] as Map<String, dynamic>),
+      results: (json['results'] as List<dynamic>)
+          .map((e) => AddressResults.fromJson(e as Map<String, dynamic>))
+          .toList(),
     );
 
 Map<String, dynamic> _$$_AddressStateToJson(_$_AddressState instance) =>

@@ -20,7 +20,7 @@ AddressState _$AddressStateFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$AddressState {
-  AddressResults get results => throw _privateConstructorUsedError;
+  List<AddressResults> get results => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -33,9 +33,7 @@ abstract class $AddressStateCopyWith<$Res> {
   factory $AddressStateCopyWith(
           AddressState value, $Res Function(AddressState) then) =
       _$AddressStateCopyWithImpl<$Res>;
-  $Res call({AddressResults results});
-
-  $AddressResultsCopyWith<$Res> get results;
+  $Res call({List<AddressResults> results});
 }
 
 /// @nodoc
@@ -54,15 +52,8 @@ class _$AddressStateCopyWithImpl<$Res> implements $AddressStateCopyWith<$Res> {
       results: results == freezed
           ? _value.results
           : results // ignore: cast_nullable_to_non_nullable
-              as AddressResults,
+              as List<AddressResults>,
     ));
-  }
-
-  @override
-  $AddressResultsCopyWith<$Res> get results {
-    return $AddressResultsCopyWith<$Res>(_value.results, (value) {
-      return _then(_value.copyWith(results: value));
-    });
   }
 }
 
@@ -73,10 +64,7 @@ abstract class _$$_AddressStateCopyWith<$Res>
           _$_AddressState value, $Res Function(_$_AddressState) then) =
       __$$_AddressStateCopyWithImpl<$Res>;
   @override
-  $Res call({AddressResults results});
-
-  @override
-  $AddressResultsCopyWith<$Res> get results;
+  $Res call({List<AddressResults> results});
 }
 
 /// @nodoc
@@ -96,9 +84,9 @@ class __$$_AddressStateCopyWithImpl<$Res>
   }) {
     return _then(_$_AddressState(
       results: results == freezed
-          ? _value.results
+          ? _value._results
           : results // ignore: cast_nullable_to_non_nullable
-              as AddressResults,
+              as List<AddressResults>,
     ));
   }
 }
@@ -106,13 +94,18 @@ class __$$_AddressStateCopyWithImpl<$Res>
 /// @nodoc
 @JsonSerializable()
 class _$_AddressState with DiagnosticableTreeMixin implements _AddressState {
-  const _$_AddressState({required this.results});
+  const _$_AddressState({required final List<AddressResults> results})
+      : _results = results;
 
   factory _$_AddressState.fromJson(Map<String, dynamic> json) =>
       _$$_AddressStateFromJson(json);
 
+  final List<AddressResults> _results;
   @override
-  final AddressResults results;
+  List<AddressResults> get results {
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_results);
+  }
 
   @override
   String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
@@ -132,13 +125,13 @@ class _$_AddressState with DiagnosticableTreeMixin implements _AddressState {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_AddressState &&
-            const DeepCollectionEquality().equals(other.results, results));
+            const DeepCollectionEquality().equals(other._results, _results));
   }
 
   @JsonKey(ignore: true)
   @override
   int get hashCode =>
-      Object.hash(runtimeType, const DeepCollectionEquality().hash(results));
+      Object.hash(runtimeType, const DeepCollectionEquality().hash(_results));
 
   @JsonKey(ignore: true)
   @override
@@ -152,14 +145,14 @@ class _$_AddressState with DiagnosticableTreeMixin implements _AddressState {
 }
 
 abstract class _AddressState implements AddressState {
-  const factory _AddressState({required final AddressResults results}) =
+  const factory _AddressState({required final List<AddressResults> results}) =
       _$_AddressState;
 
   factory _AddressState.fromJson(Map<String, dynamic> json) =
       _$_AddressState.fromJson;
 
   @override
-  AddressResults get results => throw _privateConstructorUsedError;
+  List<AddressResults> get results => throw _privateConstructorUsedError;
   @override
   @JsonKey(ignore: true)
   _$$_AddressStateCopyWith<_$_AddressState> get copyWith =>

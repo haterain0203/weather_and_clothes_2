@@ -7,7 +7,7 @@ part 'address_state.g.dart';
 @freezed
 class AddressState with _$AddressState {
   const factory AddressState({
-    required AddressResults results,
+    required List<AddressResults> results,
   }) = _AddressState;
 
   factory AddressState.fromJson(Map<String, dynamic> json) =>

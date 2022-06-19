@@ -18,14 +18,14 @@ class AddressPart extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           HomeDataText(
-            text: "〒${homePageData.address.results.zipCode}",
+            text: "〒${homePageData.address.results[0].zipCode}",
             // text: "〒000-0000",
           ),
           const SizedBox(
             width: 16.0,
           ),
           HomeDataText(
-            text: homePageData.address.results.prefecture + homePageData.address.results.city,
+            text: homePageData.address.results[0].prefecture + homePageData.address.results[0].city,
             // text: "東京都xx区",
           ),
         ],
