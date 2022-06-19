@@ -9,7 +9,7 @@ import 'package:weather_and_clothes_2/components/clothes_container.dart';
 import 'package:weather_and_clothes_2/components/compare_yesterday_part.dart';
 import 'package:weather_and_clothes_2/components/weather_info_part.dart';
 import 'package:weather_and_clothes_2/notifier/weather_notifier.dart';
-import 'package:weather_and_clothes_2/state/weather_state.dart';
+import 'package:weather_and_clothes_2/state/home_page_state.dart';
 import '../components/forecast_part.dart';
 import '../components/rounded_corner_container.dart';
 

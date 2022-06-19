@@ -2,7 +2,7 @@ import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:weather_and_clothes_2/repository/address_repository.dart';
 import 'package:weather_and_clothes_2/repository/open_weather_repository.dart';
 import 'package:weather_and_clothes_2/repository/open_meteo_repository.dart';
-import 'package:weather_and_clothes_2/state/weather_state.dart';
+import 'package:weather_and_clothes_2/state/home_page_state.dart';
 
 final weatherRepositoryProvider = Provider((ref) => WeatherRepository());
 final addressRepositoryProvider = Provider((ref) => AddressRepository());

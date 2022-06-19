@@ -1,7 +1,7 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:sizer/sizer.dart';
-import 'package:weather_and_clothes_2/state/weather_state.dart';
+import 'package:weather_and_clothes_2/state/home_page_state.dart';
 
 class WeatherInfoPart extends StatelessWidget {
   const WeatherInfoPart({
