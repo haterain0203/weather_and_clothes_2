@@ -5,11 +5,11 @@ import 'home_data_text.dart';
 
 class CompareYesterdayPart extends StatelessWidget {
   const CompareYesterdayPart({
-    required this.weatherData,
+    required this.homePageData,
     Key? key,
   }) : super(key: key);
   
-  final WeatherState weatherData;
+  final HomePageState homePageData;
 
   @override
   Widget build(BuildContext context) {
@@ -24,7 +24,10 @@ class CompareYesterdayPart extends StatelessWidget {
         ),
         //TODO 可変に
         HomeDataText(
-          text: _compareTemperature(weatherData.maxTemperature, weatherData.yesterdayMaxTemperature),
+          text: _compareTemperature(
+            homePageData.openMeteo.daily.apparentTemperatureMax[1],
+            homePageData.openMeteo.daily.apparentTemperatureMax[0],
+          ),
         ),
       ],
     );
