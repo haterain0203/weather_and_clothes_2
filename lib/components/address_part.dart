@@ -5,11 +5,11 @@ import 'home_data_text.dart';
 
 class AddressPart extends StatelessWidget {
   const AddressPart({
-    required this.weatherData,
+    required this.homePageData,
     Key? key,
   }) : super(key: key);
   
-  final WeatherState weatherData;
+  final HomePageState homePageData;
 
   @override
   Widget build(BuildContext context) {
@@ -18,14 +18,14 @@ class AddressPart extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           HomeDataText(
-            text: "〒${weatherData.postalCode.toString()}",
+            text: "〒${homePageData.address.results.zipCode}",
             // text: "〒000-0000",
           ),
           const SizedBox(
             width: 16.0,
           ),
           HomeDataText(
-            text: weatherData.prefecture + weatherData.city,
+            text: homePageData.address.results.prefecture + homePageData.address.results.city,
             // text: "東京都xx区",
           ),
         ],
