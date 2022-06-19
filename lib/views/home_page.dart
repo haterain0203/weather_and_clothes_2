@@ -132,14 +132,16 @@ class HomePage extends HookConsumerWidget {
                           homePageData: data,
                           dateStr: _setDateStr(tomorrow),
                           //TODO 明日の最高気温に変更
-                          imageUrl: _selectImageURL(data.openMeteo.daily.apparentTemperatureMax[0]),
+                          imageUrl: _selectImageURL(data.openMeteo.daily.apparentTemperatureMax[1].round()),
+                          maxTemp: data.openMeteo.daily.apparentTemperatureMax[1].round().toString(),
                         ),
                         const SizedBox(width: 16.0,),
                         ForecastPart(
                           homePageData: data,
                           dateStr: _setDateStr(dayAfterTomorrow),
                           //TODO 明後日の最高気温に変更
-                          imageUrl: _selectImageURL(data.openMeteo.daily.apparentTemperatureMax[0]),
+                          imageUrl: _selectImageURL(data.openMeteo.daily.apparentTemperatureMax[2].round()),
+                          maxTemp: data.openMeteo.daily.apparentTemperatureMax[2].round().toString(),
                         ),
                       ],
                     ),

@@ -10,12 +10,14 @@ class ForecastPart extends StatelessWidget {
     required this.homePageData,
     required this.dateStr,
     required this.imageUrl,
+    required this.maxTemp,
     Key? key,
   }) : super(key: key);
 
   final HomePageState homePageData;
   final String dateStr;
   final String imageUrl;
+  final String maxTemp;
 
   @override
   Widget build(BuildContext context) {
@@ -50,7 +52,7 @@ class ForecastPart extends StatelessWidget {
                     ),
                     TextSpan(
                       //TODO 翌日の最高気温に修正
-                      text: homePageData.openMeteo.daily.apparentTemperatureMax[1].toInt().toString(),
+                      text: maxTemp,
                       style: TextStyle(
                         fontSize: 14.sp,
                         color: const Color(0xFFF78611),
