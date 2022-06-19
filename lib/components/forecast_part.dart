@@ -7,13 +7,13 @@ import 'clothes_container.dart';
 
 class ForecastPart extends StatelessWidget {
   const ForecastPart({
-    required this.weather,
+    required this.homePageData,
     required this.dateStr,
     required this.imageUrl,
     Key? key,
   }) : super(key: key);
 
-  final WeatherState weather;
+  final HomePageState homePageData;
   final String dateStr;
   final String imageUrl;
 
@@ -50,7 +50,7 @@ class ForecastPart extends StatelessWidget {
                     ),
                     TextSpan(
                       //TODO 翌日の最高気温に修正
-                      text: weather.maxTemperature.toString(),
+                      text: homePageData.openMeteo.daily.apparentTemperatureMax[1],
                       style: TextStyle(
                         fontSize: 14.sp,
                         color: const Color(0xFFF78611),
