@@ -23,7 +23,7 @@ _$_AddressResults _$$_AddressResultsFromJson(Map<String, dynamic> json) =>
       prefecture: json['address1'] as String,
       city: json['address2'] as String,
       town: json['address3'] as String,
-      zipCode: json['zipCode'] as String,
+      zipcode: json['zipcode'] as String,
     );
 
 Map<String, dynamic> _$$_AddressResultsToJson(_$_AddressResults instance) =>
@@ -31,5 +31,5 @@ Map<String, dynamic> _$$_AddressResultsToJson(_$_AddressResults instance) =>
       'address1': instance.prefecture,
       'address2': instance.city,
       'address3': instance.town,
-      'zipCode': instance.zipCode,
+      'zipcode': instance.zipcode,
     };

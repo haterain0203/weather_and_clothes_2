@@ -171,7 +171,7 @@ mixin _$AddressResults {
   String get city => throw _privateConstructorUsedError;
   @JsonKey(name: 'address3')
   String get town => throw _privateConstructorUsedError;
-  String get zipCode => throw _privateConstructorUsedError;
+  String get zipcode => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -188,7 +188,7 @@ abstract class $AddressResultsCopyWith<$Res> {
       {@JsonKey(name: 'address1') String prefecture,
       @JsonKey(name: 'address2') String city,
       @JsonKey(name: 'address3') String town,
-      String zipCode});
+      String zipcode});
 }
 
 /// @nodoc
@@ -205,7 +205,7 @@ class _$AddressResultsCopyWithImpl<$Res>
     Object? prefecture = freezed,
     Object? city = freezed,
     Object? town = freezed,
-    Object? zipCode = freezed,
+    Object? zipcode = freezed,
   }) {
     return _then(_value.copyWith(
       prefecture: prefecture == freezed
@@ -220,9 +220,9 @@ class _$AddressResultsCopyWithImpl<$Res>
           ? _value.town
           : town // ignore: cast_nullable_to_non_nullable
               as String,
-      zipCode: zipCode == freezed
-          ? _value.zipCode
-          : zipCode // ignore: cast_nullable_to_non_nullable
+      zipcode: zipcode == freezed
+          ? _value.zipcode
+          : zipcode // ignore: cast_nullable_to_non_nullable
               as String,
     ));
   }
@@ -239,7 +239,7 @@ abstract class _$$_AddressResultsCopyWith<$Res>
       {@JsonKey(name: 'address1') String prefecture,
       @JsonKey(name: 'address2') String city,
       @JsonKey(name: 'address3') String town,
-      String zipCode});
+      String zipcode});
 }
 
 /// @nodoc
@@ -258,7 +258,7 @@ class __$$_AddressResultsCopyWithImpl<$Res>
     Object? prefecture = freezed,
     Object? city = freezed,
     Object? town = freezed,
-    Object? zipCode = freezed,
+    Object? zipcode = freezed,
   }) {
     return _then(_$_AddressResults(
       prefecture: prefecture == freezed
@@ -273,9 +273,9 @@ class __$$_AddressResultsCopyWithImpl<$Res>
           ? _value.town
           : town // ignore: cast_nullable_to_non_nullable
               as String,
-      zipCode: zipCode == freezed
-          ? _value.zipCode
-          : zipCode // ignore: cast_nullable_to_non_nullable
+      zipcode: zipcode == freezed
+          ? _value.zipcode
+          : zipcode // ignore: cast_nullable_to_non_nullable
               as String,
     ));
   }
@@ -290,7 +290,7 @@ class _$_AddressResults
       {@JsonKey(name: 'address1') required this.prefecture,
       @JsonKey(name: 'address2') required this.city,
       @JsonKey(name: 'address3') required this.town,
-      required this.zipCode});
+      required this.zipcode});
 
   factory _$_AddressResults.fromJson(Map<String, dynamic> json) =>
       _$$_AddressResultsFromJson(json);
@@ -305,11 +305,11 @@ class _$_AddressResults
   @JsonKey(name: 'address3')
   final String town;
   @override
-  final String zipCode;
+  final String zipcode;
 
   @override
   String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
-    return 'AddressResults(prefecture: $prefecture, city: $city, town: $town, zipCode: $zipCode)';
+    return 'AddressResults(prefecture: $prefecture, city: $city, town: $town, zipcode: $zipcode)';
   }
 
   @override
@@ -320,7 +320,7 @@ class _$_AddressResults
       ..add(DiagnosticsProperty('prefecture', prefecture))
       ..add(DiagnosticsProperty('city', city))
       ..add(DiagnosticsProperty('town', town))
-      ..add(DiagnosticsProperty('zipCode', zipCode));
+      ..add(DiagnosticsProperty('zipcode', zipcode));
   }
 
   @override
@@ -332,7 +332,7 @@ class _$_AddressResults
                 .equals(other.prefecture, prefecture) &&
             const DeepCollectionEquality().equals(other.city, city) &&
             const DeepCollectionEquality().equals(other.town, town) &&
-            const DeepCollectionEquality().equals(other.zipCode, zipCode));
+            const DeepCollectionEquality().equals(other.zipcode, zipcode));
   }
 
   @JsonKey(ignore: true)
@@ -342,7 +342,7 @@ class _$_AddressResults
       const DeepCollectionEquality().hash(prefecture),
       const DeepCollectionEquality().hash(city),
       const DeepCollectionEquality().hash(town),
-      const DeepCollectionEquality().hash(zipCode));
+      const DeepCollectionEquality().hash(zipcode));
 
   @JsonKey(ignore: true)
   @override
@@ -360,7 +360,7 @@ abstract class _AddressResults implements AddressResults {
       {@JsonKey(name: 'address1') required final String prefecture,
       @JsonKey(name: 'address2') required final String city,
       @JsonKey(name: 'address3') required final String town,
-      required final String zipCode}) = _$_AddressResults;
+      required final String zipcode}) = _$_AddressResults;
 
   factory _AddressResults.fromJson(Map<String, dynamic> json) =
       _$_AddressResults.fromJson;
@@ -375,7 +375,7 @@ abstract class _AddressResults implements AddressResults {
   @JsonKey(name: 'address3')
   String get town => throw _privateConstructorUsedError;
   @override
-  String get zipCode => throw _privateConstructorUsedError;
+  String get zipcode => throw _privateConstructorUsedError;
   @override
   @JsonKey(ignore: true)
   _$$_AddressResultsCopyWith<_$_AddressResults> get copyWith =>

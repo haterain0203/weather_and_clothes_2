@@ -18,7 +18,7 @@ class AddressPart extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           HomeDataText(
-            text: "〒${homePageData.address.results[0].zipCode}",
+            text: "〒${homePageData.address.results[0].zipcode}",
             // text: "〒000-0000",
           ),
           const SizedBox(
