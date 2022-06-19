@@ -3,22 +3,6 @@ import 'package:http/http.dart' as http;
 
 class WeatherRepository {
 
-  //郵便番号から住所を取得する処理
-  Future<Map<String, dynamic>> getAddress(String zipCode) async {
-    //引数の郵便番号をもとにAPI用のURLを生成
-    String url = "https://zipcloud.ibsnet.co.jp/api/search?zipcode=$zipCode";
-
-    //生成したURLでAPIを叩き、住所を取得
-    try {
-      var result = await http.get(Uri.parse(url));
-      Map<String, dynamic> data = jsonDecode(result.body);
-      return data;
-    } catch(e) {
-      print(e);
-      return {};
-    }
-  }
-
   // 郵便番号から天気descriptionと天気アイコンの取得
   Future<Map<String, dynamic>> getWeatherDescAndIcon(String zipCode) async {
     var _zipCode = "";

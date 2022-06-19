@@ -9,13 +9,11 @@ part of 'address_state.dart';
 _$_AddressState _$$_AddressStateFromJson(Map<String, dynamic> json) =>
     _$_AddressState(
       results: AddressResults.fromJson(json['results'] as Map<String, dynamic>),
-      status: json['status'] as int,
     );
 
 Map<String, dynamic> _$$_AddressStateToJson(_$_AddressState instance) =>
     <String, dynamic>{
       'results': instance.results,
-      'status': instance.status,
     };
 
 _$_AddressResults _$$_AddressResultsFromJson(Map<String, dynamic> json) =>

@@ -8,7 +8,6 @@ part 'address_state.g.dart';
 class AddressState with _$AddressState {
   const factory AddressState({
     required AddressResults results,
-    required int status,
   }) = _AddressState;
 
   factory AddressState.fromJson(Map<String, dynamic> json) =>
