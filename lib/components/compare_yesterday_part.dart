@@ -25,8 +25,8 @@ class CompareYesterdayPart extends StatelessWidget {
         //TODO 可変に
         HomeDataText(
           text: _compareTemperature(
-            homePageData.openMeteo.daily.apparentTemperatureMax[1],
-            homePageData.openMeteo.daily.apparentTemperatureMax[0],
+            homePageData.openMeteo.daily.apparentTemperatureMax[1].toInt(),
+            homePageData.openMeteo.daily.apparentTemperatureMax[0].toInt(),
           ),
         ),
       ],

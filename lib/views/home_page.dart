@@ -159,9 +159,9 @@ class HomePage extends HookConsumerWidget {
   }
 
   int _selectMaxTemperature(HomePageState state, int index) {
-    if(index == 0) return state.openMeteo.hourly.apparentTemperature[32];
-    if(index == 1) return state.openMeteo.hourly.apparentTemperature[39];
-    return state.openMeteo.hourly.apparentTemperature[44];
+    if(index == 0) return state.openMeteo.hourly.apparentTemperature[32].toInt();
+    if(index == 1) return state.openMeteo.hourly.apparentTemperature[39].toInt();
+    return state.openMeteo.hourly.apparentTemperature[44].toInt();
   }
 
   String _selectImageURL(int temp) {

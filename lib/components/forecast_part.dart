@@ -50,7 +50,7 @@ class ForecastPart extends StatelessWidget {
                     ),
                     TextSpan(
                       //TODO 翌日の最高気温に修正
-                      text: homePageData.openMeteo.daily.apparentTemperatureMax[1],
+                      text: homePageData.openMeteo.daily.apparentTemperatureMax[1].toInt().toString(),
                       style: TextStyle(
                         fontSize: 14.sp,
                         color: const Color(0xFFF78611),

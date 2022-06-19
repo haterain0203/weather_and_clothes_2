@@ -36,7 +36,7 @@ class WeatherInfoPart extends StatelessWidget {
                     text: "最高："
                 ),
                 TextSpan(
-                  text: homePageData.openMeteo.daily.apparentTemperatureMax[1],
+                  text: homePageData.openMeteo.daily.apparentTemperatureMax[1].toInt().toString(),
                   style: TextStyle(
                     fontSize: 24.sp,
                     color: const Color(0xFFF78611),
