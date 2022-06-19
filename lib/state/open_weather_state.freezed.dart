@@ -22,6 +22,7 @@ OpenWeatherState _$OpenWeatherStateFromJson(Map<String, dynamic> json) {
 mixin _$OpenWeatherState {
   @JsonKey(name: 'coord')
   OpenWeatherLatLong get latLong => throw _privateConstructorUsedError;
+  @JsonKey(name: 'weather')
   List<OpenWeatherDescAndIcon> get descAndIcon =>
       throw _privateConstructorUsedError;
 
@@ -38,7 +39,7 @@ abstract class $OpenWeatherStateCopyWith<$Res> {
       _$OpenWeatherStateCopyWithImpl<$Res>;
   $Res call(
       {@JsonKey(name: 'coord') OpenWeatherLatLong latLong,
-      List<OpenWeatherDescAndIcon> descAndIcon});
+      @JsonKey(name: 'weather') List<OpenWeatherDescAndIcon> descAndIcon});
 
   $OpenWeatherLatLongCopyWith<$Res> get latLong;
 }
@@ -86,7 +87,7 @@ abstract class _$$_OpenWeatherStateCopyWith<$Res>
   @override
   $Res call(
       {@JsonKey(name: 'coord') OpenWeatherLatLong latLong,
-      List<OpenWeatherDescAndIcon> descAndIcon});
+      @JsonKey(name: 'weather') List<OpenWeatherDescAndIcon> descAndIcon});
 
   @override
   $OpenWeatherLatLongCopyWith<$Res> get latLong;
@@ -127,8 +128,10 @@ class _$_OpenWeatherState
     with DiagnosticableTreeMixin
     implements _OpenWeatherState {
   const _$_OpenWeatherState(
-      {@JsonKey(name: 'coord') required this.latLong,
-      required final List<OpenWeatherDescAndIcon> descAndIcon})
+      {@JsonKey(name: 'coord')
+          required this.latLong,
+      @JsonKey(name: 'weather')
+          required final List<OpenWeatherDescAndIcon> descAndIcon})
       : _descAndIcon = descAndIcon;
 
   factory _$_OpenWeatherState.fromJson(Map<String, dynamic> json) =>
@@ -139,6 +142,7 @@ class _$_OpenWeatherState
   final OpenWeatherLatLong latLong;
   final List<OpenWeatherDescAndIcon> _descAndIcon;
   @override
+  @JsonKey(name: 'weather')
   List<OpenWeatherDescAndIcon> get descAndIcon {
     // ignore: implicit_dynamic_type
     return EqualUnmodifiableListView(_descAndIcon);
@@ -188,8 +192,10 @@ class _$_OpenWeatherState
 
 abstract class _OpenWeatherState implements OpenWeatherState {
   const factory _OpenWeatherState(
-          {@JsonKey(name: 'coord') required final OpenWeatherLatLong latLong,
-          required final List<OpenWeatherDescAndIcon> descAndIcon}) =
+          {@JsonKey(name: 'coord')
+              required final OpenWeatherLatLong latLong,
+          @JsonKey(name: 'weather')
+              required final List<OpenWeatherDescAndIcon> descAndIcon}) =
       _$_OpenWeatherState;
 
   factory _OpenWeatherState.fromJson(Map<String, dynamic> json) =
@@ -199,6 +205,7 @@ abstract class _OpenWeatherState implements OpenWeatherState {
   @JsonKey(name: 'coord')
   OpenWeatherLatLong get latLong => throw _privateConstructorUsedError;
   @override
+  @JsonKey(name: 'weather')
   List<OpenWeatherDescAndIcon> get descAndIcon =>
       throw _privateConstructorUsedError;
   @override

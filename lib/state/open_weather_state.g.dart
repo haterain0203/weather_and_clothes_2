@@ -10,7 +10,7 @@ _$_OpenWeatherState _$$_OpenWeatherStateFromJson(Map<String, dynamic> json) =>
     _$_OpenWeatherState(
       latLong:
           OpenWeatherLatLong.fromJson(json['coord'] as Map<String, dynamic>),
-      descAndIcon: (json['descAndIcon'] as List<dynamic>)
+      descAndIcon: (json['weather'] as List<dynamic>)
           .map(
               (e) => OpenWeatherDescAndIcon.fromJson(e as Map<String, dynamic>))
           .toList(),
@@ -19,7 +19,7 @@ _$_OpenWeatherState _$$_OpenWeatherStateFromJson(Map<String, dynamic> json) =>
 Map<String, dynamic> _$$_OpenWeatherStateToJson(_$_OpenWeatherState instance) =>
     <String, dynamic>{
       'coord': instance.latLong,
-      'descAndIcon': instance.descAndIcon,
+      'weather': instance.descAndIcon,
     };
 
 _$_OpenWeatherLatLong _$$_OpenWeatherLatLongFromJson(

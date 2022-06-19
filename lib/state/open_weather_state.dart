@@ -8,7 +8,7 @@ part 'open_weather_state.g.dart';
 class OpenWeatherState with _$OpenWeatherState {
   const factory OpenWeatherState({
     @JsonKey(name: 'coord') required OpenWeatherLatLong latLong,
-    required List<OpenWeatherDescAndIcon> descAndIcon,
+    @JsonKey(name: 'weather') required List<OpenWeatherDescAndIcon> descAndIcon,
   }) = _OpenWeatherState;
 
   factory OpenWeatherState.fromJson(Map<String, dynamic> json) =>
