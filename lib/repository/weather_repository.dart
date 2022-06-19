@@ -3,25 +3,6 @@ import 'package:http/http.dart' as http;
 
 class WeatherRepository {
 
-  // 郵便番号から天気descriptionと天気アイコンの取得
-  Future<Map<String, dynamic>> getWeatherDescAndIcon(String zipCode) async {
-    var _zipCode = "";
-    if(zipCode.contains("-")){
-      _zipCode = zipCode;
-    } else {
-      _zipCode = zipCode.substring(0, 3) + "-" + zipCode.substring(3);
-    }
-    var url = "https://api.openweathermap.org/data/2.5/weather?zip=$_zipCode,JP&appid=b10f2f5d63bee6f33f3ef043ceccb9ae&lang=ja&units=metric";
-    try {
-      var result = await http.get(Uri.parse(url));
-      Map<String, dynamic> data = jsonDecode(result.body);
-      return data;
-    } catch(e) {
-      print(e);
-      return {};
-    }
-  }
-
   // 緯度経度から最高気温と時間別最高気温を取得
   Future<Map<String, dynamic>> getWeather(double lat, double lon) async {
     // OpenWeatherだと過去のデータが取得できない（有料）のため、過去データはOpenMeteoで取得
