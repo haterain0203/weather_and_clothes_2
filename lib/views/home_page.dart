@@ -70,11 +70,11 @@ class HomePage extends HookConsumerWidget {
                       child: Column(
                         children: [
                           //AddressArea
-                          AddressPart(weatherData: data),
+                          AddressPart(homePageData: data),
                           //天気情報部分
-                          WeatherInfoPart(weatherData: data),
+                          WeatherInfoPart(homePageData: data),
                           //昨日と比べて部分
-                          CompareYesterdayPart(weatherData: data),
+                          CompareYesterdayPart(homePageData: data),
                         ],
                       ),
                     ),
@@ -129,14 +129,14 @@ class HomePage extends HookConsumerWidget {
                     Row(
                       children: [
                         ForecastPart(
-                          weather: data,
+                          homePageData: data,
                           dateStr: _setDateStr(tomorrow),
                           //TODO 明日の最高気温に変更
                           imageUrl: _selectImageURL(data.openMeteo.daily.apparentTemperatureMax[0]),
                         ),
                         const SizedBox(width: 16.0,),
                         ForecastPart(
-                          weather: data,
+                          homePageData: data,
                           dateStr: _setDateStr(dayAfterTomorrow),
                           //TODO 明後日の最高気温に変更
                           imageUrl: _selectImageURL(data.openMeteo.daily.apparentTemperatureMax[0]),
