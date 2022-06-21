@@ -7,7 +7,7 @@ part 'open_weather_state.g.dart';
 @freezed
 class OpenWeatherState with _$OpenWeatherState {
   const factory OpenWeatherState({
-    @JsonKey(name: 'coord') required OpenWeatherLatLong latLong,
+    @JsonKey(name: 'city') required OpenWeatherCity city,
     @JsonKey(name: 'weather') required List<OpenWeatherDescAndIcon> descAndIcon,
   }) = _OpenWeatherState;
 
@@ -16,14 +16,24 @@ class OpenWeatherState with _$OpenWeatherState {
 }
 
 @freezed
-class OpenWeatherLatLong with _$OpenWeatherLatLong {
-  const factory OpenWeatherLatLong({
-    required double lon,
-    required double lat,
-  }) = _OpenWeatherLatLong;
+class OpenWeatherCity with _$OpenWeatherCity {
+  const factory OpenWeatherCity({
+    required OpenWeahterCoord coord,
+  }) = _OpenWeatherCity;
 
-  factory OpenWeatherLatLong.fromJson(Map<String, dynamic> json) =>
-      _$OpenWeatherLatLongFromJson(json);
+  factory OpenWeatherCity.fromJson(Map<String, dynamic> json) =>
+      _$OpenWeatherCityFromJson(json);
+}
+
+@freezed
+class OpenWeatherCoord with _$OpenWeatherCoord {
+  const factory OpenWeatherCoord({
+    required double lat,
+    required double lon,
+  }) = _OpenWeatherCoord;
+
+  factory OpenWeatherCoord.fromJson(Map<String, dynamic> json) =>
+      _$OpenWeatherCoordFromJson(json);
 }
 
 @freezed
