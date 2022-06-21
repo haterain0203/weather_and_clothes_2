@@ -14,7 +14,7 @@ class OpenWeatherRepository {
       _zipCode = zipCode.substring(0, 3) + "-" + zipCode.substring(3);
     }
     final url =
-        "https://api.openweathermap.org/data/2.5/weather?zip=$_zipCode,JP&appid=b10f2f5d63bee6f33f3ef043ceccb9ae&lang=ja&units=metric";
+        "https://api.openweathermap.org/data/2.5/forecast?zip=$_zipCode,JP&appid=b10f2f5d63bee6f33f3ef043ceccb9ae&lang=ja&units=metric";
     final response = await http.get(Uri.parse(url));
     if (response.statusCode == 200) {
       final Map<String, dynamic> body = jsonDecode(response.body);
