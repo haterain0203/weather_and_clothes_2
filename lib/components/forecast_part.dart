@@ -40,6 +40,7 @@ class ForecastPart extends StatelessWidget {
             ),
             const SizedBox(height: 8.0,),
             //天気情報部分
+            //TODO OpenWeatherの天気アイコン追加したい
             RichText(
               text: TextSpan(
                   style: TextStyle(

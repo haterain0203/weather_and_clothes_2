@@ -4,6 +4,8 @@ import 'package:weather_and_clothes_2/state/open_weather_state.dart';
 
 class OpenWeatherRepository {
   // 郵便番号から天気descriptionと天気アイコンの取得
+  //TODO OpenWeatherから、本日の気温（朝・昼・夜）と翌日、翌々日の昼の気温を取得するように変更する
+  //TODO https://openweathermap.org/forecast5#zip5
   Future<OpenWeatherState> getWeatherDescAndIcon(String zipCode) async {
     var _zipCode = "";
     if (zipCode.contains("-")) {

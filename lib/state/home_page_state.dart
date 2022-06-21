@@ -11,7 +11,9 @@ part 'home_page_state.g.dart';
 class HomePageState with _$HomePageState {
   const factory HomePageState({
     required AddressState address,
+    //TODO OpenWeatherからは、当日の朝昼夜の天気情報と、翌日・翌々日の天気情報を取得するようにする（過去データ以外）
     required OpenWeatherState openWeather,
+    //TODO OpenMeteoからは過去データ取得のみを行うように修正する
     required OpenMeteoState openMeteo,
   }) = _HomePageState;
 
