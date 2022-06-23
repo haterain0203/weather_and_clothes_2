@@ -20,8 +20,10 @@ HomePageState _$HomePageStateFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$HomePageState {
-  AddressState get address => throw _privateConstructorUsedError;
-  OpenWeatherState get openWeather => throw _privateConstructorUsedError;
+  AddressState get address =>
+      throw _privateConstructorUsedError; //TODO OpenWeatherからは、当日の朝昼夜の天気情報と、翌日・翌々日の天気情報を取得するようにする（過去データ以外）
+  OpenWeatherState get openWeather =>
+      throw _privateConstructorUsedError; //TODO OpenMeteoからは過去データ取得のみを行うように修正する
   OpenMeteoState get openMeteo => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -165,8 +167,10 @@ class _$_HomePageState with DiagnosticableTreeMixin implements _HomePageState {
 
   @override
   final AddressState address;
+//TODO OpenWeatherからは、当日の朝昼夜の天気情報と、翌日・翌々日の天気情報を取得するようにする（過去データ以外）
   @override
   final OpenWeatherState openWeather;
+//TODO OpenMeteoからは過去データ取得のみを行うように修正する
   @override
   final OpenMeteoState openMeteo;
 
@@ -226,9 +230,9 @@ abstract class _HomePageState implements HomePageState {
 
   @override
   AddressState get address => throw _privateConstructorUsedError;
-  @override
+  @override //TODO OpenWeatherからは、当日の朝昼夜の天気情報と、翌日・翌々日の天気情報を取得するようにする（過去データ以外）
   OpenWeatherState get openWeather => throw _privateConstructorUsedError;
-  @override
+  @override //TODO OpenMeteoからは過去データ取得のみを行うように修正する
   OpenMeteoState get openMeteo => throw _privateConstructorUsedError;
   @override
   @JsonKey(ignore: true)

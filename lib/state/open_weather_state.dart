@@ -7,8 +7,8 @@ part 'open_weather_state.g.dart';
 @freezed
 class OpenWeatherState with _$OpenWeatherState {
   const factory OpenWeatherState({
-    @JsonKey(name: 'city') required OpenWeatherCity city,
-    @JsonKey(name: 'weather') required List<OpenWeatherDescAndIcon> descAndIcon,
+    required OpenWeatherCity city,
+    required List<OpenWeatherData> list,
   }) = _OpenWeatherState;
 
   factory OpenWeatherState.fromJson(Map<String, dynamic> json) =>
@@ -18,7 +18,7 @@ class OpenWeatherState with _$OpenWeatherState {
 @freezed
 class OpenWeatherCity with _$OpenWeatherCity {
   const factory OpenWeatherCity({
-    required OpenWeahterCoord coord,
+    required OpenWeatherCoord coord,
   }) = _OpenWeatherCity;
 
   factory OpenWeatherCity.fromJson(Map<String, dynamic> json) =>
@@ -37,12 +37,33 @@ class OpenWeatherCoord with _$OpenWeatherCoord {
 }
 
 @freezed
-class OpenWeatherDescAndIcon with _$OpenWeatherDescAndIcon {
-  const factory OpenWeatherDescAndIcon({
+class OpenWeatherData with _$OpenWeatherData {
+  const factory OpenWeatherData({
+    required OpenWeatherMain main,
+    required OpenWeather weather,
+  }) = _OpenWeatherData;
+
+  factory OpenWeatherData.fromJson(Map<String, dynamic> json) =>
+      _$OpenWeatherDataFromJson(json);
+}
+
+@freezed
+class OpenWeatherMain with _$OpenWeatherMain {
+  const factory OpenWeatherMain({
+    @JsonKey(name: 'feels_like') required double temp,
+  }) = _OpenWeatherMain;
+
+  factory OpenWeatherMain.fromJson(Map<String, dynamic> json) =>
+      _$OpenWeatherMainFromJson(json);
+}
+
+@freezed
+class OpenWeather with _$OpenWeather {
+  const factory OpenWeather({
     required String description,
     required String icon,
-  }) = _OpenWeatherDescAndIcon;
+  }) = _OpenWeather;
 
-  factory OpenWeatherDescAndIcon.fromJson(Map<String, dynamic> json) =>
-      _$OpenWeatherDescAndIconFromJson(json);
+  factory OpenWeather.fromJson(Map<String, dynamic> json) =>
+      _$OpenWeatherFromJson(json);
 }

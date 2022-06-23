@@ -20,11 +20,8 @@ OpenWeatherState _$OpenWeatherStateFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$OpenWeatherState {
-  @JsonKey(name: 'coord')
-  OpenWeatherLatLong get latLong => throw _privateConstructorUsedError;
-  @JsonKey(name: 'weather')
-  List<OpenWeatherDescAndIcon> get descAndIcon =>
-      throw _privateConstructorUsedError;
+  OpenWeatherCity get city => throw _privateConstructorUsedError;
+  List<OpenWeatherData> get list => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -37,11 +34,9 @@ abstract class $OpenWeatherStateCopyWith<$Res> {
   factory $OpenWeatherStateCopyWith(
           OpenWeatherState value, $Res Function(OpenWeatherState) then) =
       _$OpenWeatherStateCopyWithImpl<$Res>;
-  $Res call(
-      {@JsonKey(name: 'coord') OpenWeatherLatLong latLong,
-      @JsonKey(name: 'weather') List<OpenWeatherDescAndIcon> descAndIcon});
+  $Res call({OpenWeatherCity city, List<OpenWeatherData> list});
 
-  $OpenWeatherLatLongCopyWith<$Res> get latLong;
+  $OpenWeatherCityCopyWith<$Res> get city;
 }
 
 /// @nodoc
@@ -55,25 +50,25 @@ class _$OpenWeatherStateCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object? latLong = freezed,
-    Object? descAndIcon = freezed,
+    Object? city = freezed,
+    Object? list = freezed,
   }) {
     return _then(_value.copyWith(
-      latLong: latLong == freezed
-          ? _value.latLong
-          : latLong // ignore: cast_nullable_to_non_nullable
-              as OpenWeatherLatLong,
-      descAndIcon: descAndIcon == freezed
-          ? _value.descAndIcon
-          : descAndIcon // ignore: cast_nullable_to_non_nullable
-              as List<OpenWeatherDescAndIcon>,
+      city: city == freezed
+          ? _value.city
+          : city // ignore: cast_nullable_to_non_nullable
+              as OpenWeatherCity,
+      list: list == freezed
+          ? _value.list
+          : list // ignore: cast_nullable_to_non_nullable
+              as List<OpenWeatherData>,
     ));
   }
 
   @override
-  $OpenWeatherLatLongCopyWith<$Res> get latLong {
-    return $OpenWeatherLatLongCopyWith<$Res>(_value.latLong, (value) {
-      return _then(_value.copyWith(latLong: value));
+  $OpenWeatherCityCopyWith<$Res> get city {
+    return $OpenWeatherCityCopyWith<$Res>(_value.city, (value) {
+      return _then(_value.copyWith(city: value));
     });
   }
 }
@@ -85,12 +80,10 @@ abstract class _$$_OpenWeatherStateCopyWith<$Res>
           _$_OpenWeatherState value, $Res Function(_$_OpenWeatherState) then) =
       __$$_OpenWeatherStateCopyWithImpl<$Res>;
   @override
-  $Res call(
-      {@JsonKey(name: 'coord') OpenWeatherLatLong latLong,
-      @JsonKey(name: 'weather') List<OpenWeatherDescAndIcon> descAndIcon});
+  $Res call({OpenWeatherCity city, List<OpenWeatherData> list});
 
   @override
-  $OpenWeatherLatLongCopyWith<$Res> get latLong;
+  $OpenWeatherCityCopyWith<$Res> get city;
 }
 
 /// @nodoc
@@ -106,18 +99,18 @@ class __$$_OpenWeatherStateCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object? latLong = freezed,
-    Object? descAndIcon = freezed,
+    Object? city = freezed,
+    Object? list = freezed,
   }) {
     return _then(_$_OpenWeatherState(
-      latLong: latLong == freezed
-          ? _value.latLong
-          : latLong // ignore: cast_nullable_to_non_nullable
-              as OpenWeatherLatLong,
-      descAndIcon: descAndIcon == freezed
-          ? _value._descAndIcon
-          : descAndIcon // ignore: cast_nullable_to_non_nullable
-              as List<OpenWeatherDescAndIcon>,
+      city: city == freezed
+          ? _value.city
+          : city // ignore: cast_nullable_to_non_nullable
+              as OpenWeatherCity,
+      list: list == freezed
+          ? _value._list
+          : list // ignore: cast_nullable_to_non_nullable
+              as List<OpenWeatherData>,
     ));
   }
 }
@@ -128,29 +121,24 @@ class _$_OpenWeatherState
     with DiagnosticableTreeMixin
     implements _OpenWeatherState {
   const _$_OpenWeatherState(
-      {@JsonKey(name: 'coord')
-          required this.latLong,
-      @JsonKey(name: 'weather')
-          required final List<OpenWeatherDescAndIcon> descAndIcon})
-      : _descAndIcon = descAndIcon;
+      {required this.city, required final List<OpenWeatherData> list})
+      : _list = list;
 
   factory _$_OpenWeatherState.fromJson(Map<String, dynamic> json) =>
       _$$_OpenWeatherStateFromJson(json);
 
   @override
-  @JsonKey(name: 'coord')
-  final OpenWeatherLatLong latLong;
-  final List<OpenWeatherDescAndIcon> _descAndIcon;
+  final OpenWeatherCity city;
+  final List<OpenWeatherData> _list;
   @override
-  @JsonKey(name: 'weather')
-  List<OpenWeatherDescAndIcon> get descAndIcon {
+  List<OpenWeatherData> get list {
     // ignore: implicit_dynamic_type
-    return EqualUnmodifiableListView(_descAndIcon);
+    return EqualUnmodifiableListView(_list);
   }
 
   @override
   String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
-    return 'OpenWeatherState(latLong: $latLong, descAndIcon: $descAndIcon)';
+    return 'OpenWeatherState(city: $city, list: $list)';
   }
 
   @override
@@ -158,8 +146,8 @@ class _$_OpenWeatherState
     super.debugFillProperties(properties);
     properties
       ..add(DiagnosticsProperty('type', 'OpenWeatherState'))
-      ..add(DiagnosticsProperty('latLong', latLong))
-      ..add(DiagnosticsProperty('descAndIcon', descAndIcon));
+      ..add(DiagnosticsProperty('city', city))
+      ..add(DiagnosticsProperty('list', list));
   }
 
   @override
@@ -167,17 +155,16 @@ class _$_OpenWeatherState
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_OpenWeatherState &&
-            const DeepCollectionEquality().equals(other.latLong, latLong) &&
-            const DeepCollectionEquality()
-                .equals(other._descAndIcon, _descAndIcon));
+            const DeepCollectionEquality().equals(other.city, city) &&
+            const DeepCollectionEquality().equals(other._list, _list));
   }
 
   @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(
       runtimeType,
-      const DeepCollectionEquality().hash(latLong),
-      const DeepCollectionEquality().hash(_descAndIcon));
+      const DeepCollectionEquality().hash(city),
+      const DeepCollectionEquality().hash(_list));
 
   @JsonKey(ignore: true)
   @override
@@ -192,224 +179,702 @@ class _$_OpenWeatherState
 
 abstract class _OpenWeatherState implements OpenWeatherState {
   const factory _OpenWeatherState(
-          {@JsonKey(name: 'coord')
-              required final OpenWeatherLatLong latLong,
-          @JsonKey(name: 'weather')
-              required final List<OpenWeatherDescAndIcon> descAndIcon}) =
-      _$_OpenWeatherState;
+      {required final OpenWeatherCity city,
+      required final List<OpenWeatherData> list}) = _$_OpenWeatherState;
 
   factory _OpenWeatherState.fromJson(Map<String, dynamic> json) =
       _$_OpenWeatherState.fromJson;
 
   @override
-  @JsonKey(name: 'coord')
-  OpenWeatherLatLong get latLong => throw _privateConstructorUsedError;
+  OpenWeatherCity get city => throw _privateConstructorUsedError;
   @override
-  @JsonKey(name: 'weather')
-  List<OpenWeatherDescAndIcon> get descAndIcon =>
-      throw _privateConstructorUsedError;
+  List<OpenWeatherData> get list => throw _privateConstructorUsedError;
   @override
   @JsonKey(ignore: true)
   _$$_OpenWeatherStateCopyWith<_$_OpenWeatherState> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
-OpenWeatherLatLong _$OpenWeatherLatLongFromJson(Map<String, dynamic> json) {
-  return _OpenWeatherLatLong.fromJson(json);
+OpenWeatherCity _$OpenWeatherCityFromJson(Map<String, dynamic> json) {
+  return _OpenWeatherCity.fromJson(json);
 }
 
 /// @nodoc
-mixin _$OpenWeatherLatLong {
-  double get lon => throw _privateConstructorUsedError;
-  double get lat => throw _privateConstructorUsedError;
+mixin _$OpenWeatherCity {
+  OpenWeatherCoord get coord => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
-  $OpenWeatherLatLongCopyWith<OpenWeatherLatLong> get copyWith =>
+  $OpenWeatherCityCopyWith<OpenWeatherCity> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class $OpenWeatherLatLongCopyWith<$Res> {
-  factory $OpenWeatherLatLongCopyWith(
-          OpenWeatherLatLong value, $Res Function(OpenWeatherLatLong) then) =
-      _$OpenWeatherLatLongCopyWithImpl<$Res>;
-  $Res call({double lon, double lat});
+abstract class $OpenWeatherCityCopyWith<$Res> {
+  factory $OpenWeatherCityCopyWith(
+          OpenWeatherCity value, $Res Function(OpenWeatherCity) then) =
+      _$OpenWeatherCityCopyWithImpl<$Res>;
+  $Res call({OpenWeatherCoord coord});
+
+  $OpenWeatherCoordCopyWith<$Res> get coord;
 }
 
 /// @nodoc
-class _$OpenWeatherLatLongCopyWithImpl<$Res>
-    implements $OpenWeatherLatLongCopyWith<$Res> {
-  _$OpenWeatherLatLongCopyWithImpl(this._value, this._then);
+class _$OpenWeatherCityCopyWithImpl<$Res>
+    implements $OpenWeatherCityCopyWith<$Res> {
+  _$OpenWeatherCityCopyWithImpl(this._value, this._then);
 
-  final OpenWeatherLatLong _value;
+  final OpenWeatherCity _value;
   // ignore: unused_field
-  final $Res Function(OpenWeatherLatLong) _then;
+  final $Res Function(OpenWeatherCity) _then;
 
   @override
   $Res call({
-    Object? lon = freezed,
-    Object? lat = freezed,
+    Object? coord = freezed,
   }) {
     return _then(_value.copyWith(
-      lon: lon == freezed
-          ? _value.lon
-          : lon // ignore: cast_nullable_to_non_nullable
-              as double,
-      lat: lat == freezed
-          ? _value.lat
-          : lat // ignore: cast_nullable_to_non_nullable
-              as double,
+      coord: coord == freezed
+          ? _value.coord
+          : coord // ignore: cast_nullable_to_non_nullable
+              as OpenWeatherCoord,
     ));
+  }
+
+  @override
+  $OpenWeatherCoordCopyWith<$Res> get coord {
+    return $OpenWeatherCoordCopyWith<$Res>(_value.coord, (value) {
+      return _then(_value.copyWith(coord: value));
+    });
   }
 }
 
 /// @nodoc
-abstract class _$$_OpenWeatherLatLongCopyWith<$Res>
-    implements $OpenWeatherLatLongCopyWith<$Res> {
-  factory _$$_OpenWeatherLatLongCopyWith(_$_OpenWeatherLatLong value,
-          $Res Function(_$_OpenWeatherLatLong) then) =
-      __$$_OpenWeatherLatLongCopyWithImpl<$Res>;
+abstract class _$$_OpenWeatherCityCopyWith<$Res>
+    implements $OpenWeatherCityCopyWith<$Res> {
+  factory _$$_OpenWeatherCityCopyWith(
+          _$_OpenWeatherCity value, $Res Function(_$_OpenWeatherCity) then) =
+      __$$_OpenWeatherCityCopyWithImpl<$Res>;
   @override
-  $Res call({double lon, double lat});
+  $Res call({OpenWeatherCoord coord});
+
+  @override
+  $OpenWeatherCoordCopyWith<$Res> get coord;
 }
 
 /// @nodoc
-class __$$_OpenWeatherLatLongCopyWithImpl<$Res>
-    extends _$OpenWeatherLatLongCopyWithImpl<$Res>
-    implements _$$_OpenWeatherLatLongCopyWith<$Res> {
-  __$$_OpenWeatherLatLongCopyWithImpl(
-      _$_OpenWeatherLatLong _value, $Res Function(_$_OpenWeatherLatLong) _then)
-      : super(_value, (v) => _then(v as _$_OpenWeatherLatLong));
+class __$$_OpenWeatherCityCopyWithImpl<$Res>
+    extends _$OpenWeatherCityCopyWithImpl<$Res>
+    implements _$$_OpenWeatherCityCopyWith<$Res> {
+  __$$_OpenWeatherCityCopyWithImpl(
+      _$_OpenWeatherCity _value, $Res Function(_$_OpenWeatherCity) _then)
+      : super(_value, (v) => _then(v as _$_OpenWeatherCity));
 
   @override
-  _$_OpenWeatherLatLong get _value => super._value as _$_OpenWeatherLatLong;
+  _$_OpenWeatherCity get _value => super._value as _$_OpenWeatherCity;
 
   @override
   $Res call({
-    Object? lon = freezed,
-    Object? lat = freezed,
+    Object? coord = freezed,
   }) {
-    return _then(_$_OpenWeatherLatLong(
-      lon: lon == freezed
-          ? _value.lon
-          : lon // ignore: cast_nullable_to_non_nullable
-              as double,
-      lat: lat == freezed
-          ? _value.lat
-          : lat // ignore: cast_nullable_to_non_nullable
-              as double,
+    return _then(_$_OpenWeatherCity(
+      coord: coord == freezed
+          ? _value.coord
+          : coord // ignore: cast_nullable_to_non_nullable
+              as OpenWeatherCoord,
     ));
   }
 }
 
 /// @nodoc
 @JsonSerializable()
-class _$_OpenWeatherLatLong
+class _$_OpenWeatherCity
     with DiagnosticableTreeMixin
-    implements _OpenWeatherLatLong {
-  const _$_OpenWeatherLatLong({required this.lon, required this.lat});
+    implements _OpenWeatherCity {
+  const _$_OpenWeatherCity({required this.coord});
 
-  factory _$_OpenWeatherLatLong.fromJson(Map<String, dynamic> json) =>
-      _$$_OpenWeatherLatLongFromJson(json);
+  factory _$_OpenWeatherCity.fromJson(Map<String, dynamic> json) =>
+      _$$_OpenWeatherCityFromJson(json);
 
   @override
-  final double lon;
-  @override
-  final double lat;
+  final OpenWeatherCoord coord;
 
   @override
   String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
-    return 'OpenWeatherLatLong(lon: $lon, lat: $lat)';
+    return 'OpenWeatherCity(coord: $coord)';
   }
 
   @override
   void debugFillProperties(DiagnosticPropertiesBuilder properties) {
     super.debugFillProperties(properties);
     properties
-      ..add(DiagnosticsProperty('type', 'OpenWeatherLatLong'))
-      ..add(DiagnosticsProperty('lon', lon))
-      ..add(DiagnosticsProperty('lat', lat));
+      ..add(DiagnosticsProperty('type', 'OpenWeatherCity'))
+      ..add(DiagnosticsProperty('coord', coord));
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_OpenWeatherLatLong &&
-            const DeepCollectionEquality().equals(other.lon, lon) &&
-            const DeepCollectionEquality().equals(other.lat, lat));
+            other is _$_OpenWeatherCity &&
+            const DeepCollectionEquality().equals(other.coord, coord));
+  }
+
+  @JsonKey(ignore: true)
+  @override
+  int get hashCode =>
+      Object.hash(runtimeType, const DeepCollectionEquality().hash(coord));
+
+  @JsonKey(ignore: true)
+  @override
+  _$$_OpenWeatherCityCopyWith<_$_OpenWeatherCity> get copyWith =>
+      __$$_OpenWeatherCityCopyWithImpl<_$_OpenWeatherCity>(this, _$identity);
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$$_OpenWeatherCityToJson(this);
+  }
+}
+
+abstract class _OpenWeatherCity implements OpenWeatherCity {
+  const factory _OpenWeatherCity({required final OpenWeatherCoord coord}) =
+      _$_OpenWeatherCity;
+
+  factory _OpenWeatherCity.fromJson(Map<String, dynamic> json) =
+      _$_OpenWeatherCity.fromJson;
+
+  @override
+  OpenWeatherCoord get coord => throw _privateConstructorUsedError;
+  @override
+  @JsonKey(ignore: true)
+  _$$_OpenWeatherCityCopyWith<_$_OpenWeatherCity> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+OpenWeatherCoord _$OpenWeatherCoordFromJson(Map<String, dynamic> json) {
+  return _OpenWeatherCoord.fromJson(json);
+}
+
+/// @nodoc
+mixin _$OpenWeatherCoord {
+  double get lat => throw _privateConstructorUsedError;
+  double get lon => throw _privateConstructorUsedError;
+
+  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
+  @JsonKey(ignore: true)
+  $OpenWeatherCoordCopyWith<OpenWeatherCoord> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class $OpenWeatherCoordCopyWith<$Res> {
+  factory $OpenWeatherCoordCopyWith(
+          OpenWeatherCoord value, $Res Function(OpenWeatherCoord) then) =
+      _$OpenWeatherCoordCopyWithImpl<$Res>;
+  $Res call({double lat, double lon});
+}
+
+/// @nodoc
+class _$OpenWeatherCoordCopyWithImpl<$Res>
+    implements $OpenWeatherCoordCopyWith<$Res> {
+  _$OpenWeatherCoordCopyWithImpl(this._value, this._then);
+
+  final OpenWeatherCoord _value;
+  // ignore: unused_field
+  final $Res Function(OpenWeatherCoord) _then;
+
+  @override
+  $Res call({
+    Object? lat = freezed,
+    Object? lon = freezed,
+  }) {
+    return _then(_value.copyWith(
+      lat: lat == freezed
+          ? _value.lat
+          : lat // ignore: cast_nullable_to_non_nullable
+              as double,
+      lon: lon == freezed
+          ? _value.lon
+          : lon // ignore: cast_nullable_to_non_nullable
+              as double,
+    ));
+  }
+}
+
+/// @nodoc
+abstract class _$$_OpenWeatherCoordCopyWith<$Res>
+    implements $OpenWeatherCoordCopyWith<$Res> {
+  factory _$$_OpenWeatherCoordCopyWith(
+          _$_OpenWeatherCoord value, $Res Function(_$_OpenWeatherCoord) then) =
+      __$$_OpenWeatherCoordCopyWithImpl<$Res>;
+  @override
+  $Res call({double lat, double lon});
+}
+
+/// @nodoc
+class __$$_OpenWeatherCoordCopyWithImpl<$Res>
+    extends _$OpenWeatherCoordCopyWithImpl<$Res>
+    implements _$$_OpenWeatherCoordCopyWith<$Res> {
+  __$$_OpenWeatherCoordCopyWithImpl(
+      _$_OpenWeatherCoord _value, $Res Function(_$_OpenWeatherCoord) _then)
+      : super(_value, (v) => _then(v as _$_OpenWeatherCoord));
+
+  @override
+  _$_OpenWeatherCoord get _value => super._value as _$_OpenWeatherCoord;
+
+  @override
+  $Res call({
+    Object? lat = freezed,
+    Object? lon = freezed,
+  }) {
+    return _then(_$_OpenWeatherCoord(
+      lat: lat == freezed
+          ? _value.lat
+          : lat // ignore: cast_nullable_to_non_nullable
+              as double,
+      lon: lon == freezed
+          ? _value.lon
+          : lon // ignore: cast_nullable_to_non_nullable
+              as double,
+    ));
+  }
+}
+
+/// @nodoc
+@JsonSerializable()
+class _$_OpenWeatherCoord
+    with DiagnosticableTreeMixin
+    implements _OpenWeatherCoord {
+  const _$_OpenWeatherCoord({required this.lat, required this.lon});
+
+  factory _$_OpenWeatherCoord.fromJson(Map<String, dynamic> json) =>
+      _$$_OpenWeatherCoordFromJson(json);
+
+  @override
+  final double lat;
+  @override
+  final double lon;
+
+  @override
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
+    return 'OpenWeatherCoord(lat: $lat, lon: $lon)';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties
+      ..add(DiagnosticsProperty('type', 'OpenWeatherCoord'))
+      ..add(DiagnosticsProperty('lat', lat))
+      ..add(DiagnosticsProperty('lon', lon));
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$_OpenWeatherCoord &&
+            const DeepCollectionEquality().equals(other.lat, lat) &&
+            const DeepCollectionEquality().equals(other.lon, lon));
   }
 
   @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(
       runtimeType,
-      const DeepCollectionEquality().hash(lon),
-      const DeepCollectionEquality().hash(lat));
+      const DeepCollectionEquality().hash(lat),
+      const DeepCollectionEquality().hash(lon));
 
   @JsonKey(ignore: true)
   @override
-  _$$_OpenWeatherLatLongCopyWith<_$_OpenWeatherLatLong> get copyWith =>
-      __$$_OpenWeatherLatLongCopyWithImpl<_$_OpenWeatherLatLong>(
-          this, _$identity);
+  _$$_OpenWeatherCoordCopyWith<_$_OpenWeatherCoord> get copyWith =>
+      __$$_OpenWeatherCoordCopyWithImpl<_$_OpenWeatherCoord>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_OpenWeatherLatLongToJson(this);
+    return _$$_OpenWeatherCoordToJson(this);
   }
 }
 
-abstract class _OpenWeatherLatLong implements OpenWeatherLatLong {
-  const factory _OpenWeatherLatLong(
-      {required final double lon,
-      required final double lat}) = _$_OpenWeatherLatLong;
+abstract class _OpenWeatherCoord implements OpenWeatherCoord {
+  const factory _OpenWeatherCoord(
+      {required final double lat,
+      required final double lon}) = _$_OpenWeatherCoord;
 
-  factory _OpenWeatherLatLong.fromJson(Map<String, dynamic> json) =
-      _$_OpenWeatherLatLong.fromJson;
+  factory _OpenWeatherCoord.fromJson(Map<String, dynamic> json) =
+      _$_OpenWeatherCoord.fromJson;
 
-  @override
-  double get lon => throw _privateConstructorUsedError;
   @override
   double get lat => throw _privateConstructorUsedError;
   @override
+  double get lon => throw _privateConstructorUsedError;
+  @override
   @JsonKey(ignore: true)
-  _$$_OpenWeatherLatLongCopyWith<_$_OpenWeatherLatLong> get copyWith =>
+  _$$_OpenWeatherCoordCopyWith<_$_OpenWeatherCoord> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
-OpenWeatherDescAndIcon _$OpenWeatherDescAndIconFromJson(
-    Map<String, dynamic> json) {
-  return _OpenWeatherDescAndIcon.fromJson(json);
+OpenWeatherData _$OpenWeatherDataFromJson(Map<String, dynamic> json) {
+  return _OpenWeatherData.fromJson(json);
 }
 
 /// @nodoc
-mixin _$OpenWeatherDescAndIcon {
+mixin _$OpenWeatherData {
+  OpenWeatherMain get main => throw _privateConstructorUsedError;
+  OpenWeather get weather => throw _privateConstructorUsedError;
+
+  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
+  @JsonKey(ignore: true)
+  $OpenWeatherDataCopyWith<OpenWeatherData> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class $OpenWeatherDataCopyWith<$Res> {
+  factory $OpenWeatherDataCopyWith(
+          OpenWeatherData value, $Res Function(OpenWeatherData) then) =
+      _$OpenWeatherDataCopyWithImpl<$Res>;
+  $Res call({OpenWeatherMain main, OpenWeather weather});
+
+  $OpenWeatherMainCopyWith<$Res> get main;
+  $OpenWeatherCopyWith<$Res> get weather;
+}
+
+/// @nodoc
+class _$OpenWeatherDataCopyWithImpl<$Res>
+    implements $OpenWeatherDataCopyWith<$Res> {
+  _$OpenWeatherDataCopyWithImpl(this._value, this._then);
+
+  final OpenWeatherData _value;
+  // ignore: unused_field
+  final $Res Function(OpenWeatherData) _then;
+
+  @override
+  $Res call({
+    Object? main = freezed,
+    Object? weather = freezed,
+  }) {
+    return _then(_value.copyWith(
+      main: main == freezed
+          ? _value.main
+          : main // ignore: cast_nullable_to_non_nullable
+              as OpenWeatherMain,
+      weather: weather == freezed
+          ? _value.weather
+          : weather // ignore: cast_nullable_to_non_nullable
+              as OpenWeather,
+    ));
+  }
+
+  @override
+  $OpenWeatherMainCopyWith<$Res> get main {
+    return $OpenWeatherMainCopyWith<$Res>(_value.main, (value) {
+      return _then(_value.copyWith(main: value));
+    });
+  }
+
+  @override
+  $OpenWeatherCopyWith<$Res> get weather {
+    return $OpenWeatherCopyWith<$Res>(_value.weather, (value) {
+      return _then(_value.copyWith(weather: value));
+    });
+  }
+}
+
+/// @nodoc
+abstract class _$$_OpenWeatherDataCopyWith<$Res>
+    implements $OpenWeatherDataCopyWith<$Res> {
+  factory _$$_OpenWeatherDataCopyWith(
+          _$_OpenWeatherData value, $Res Function(_$_OpenWeatherData) then) =
+      __$$_OpenWeatherDataCopyWithImpl<$Res>;
+  @override
+  $Res call({OpenWeatherMain main, OpenWeather weather});
+
+  @override
+  $OpenWeatherMainCopyWith<$Res> get main;
+  @override
+  $OpenWeatherCopyWith<$Res> get weather;
+}
+
+/// @nodoc
+class __$$_OpenWeatherDataCopyWithImpl<$Res>
+    extends _$OpenWeatherDataCopyWithImpl<$Res>
+    implements _$$_OpenWeatherDataCopyWith<$Res> {
+  __$$_OpenWeatherDataCopyWithImpl(
+      _$_OpenWeatherData _value, $Res Function(_$_OpenWeatherData) _then)
+      : super(_value, (v) => _then(v as _$_OpenWeatherData));
+
+  @override
+  _$_OpenWeatherData get _value => super._value as _$_OpenWeatherData;
+
+  @override
+  $Res call({
+    Object? main = freezed,
+    Object? weather = freezed,
+  }) {
+    return _then(_$_OpenWeatherData(
+      main: main == freezed
+          ? _value.main
+          : main // ignore: cast_nullable_to_non_nullable
+              as OpenWeatherMain,
+      weather: weather == freezed
+          ? _value.weather
+          : weather // ignore: cast_nullable_to_non_nullable
+              as OpenWeather,
+    ));
+  }
+}
+
+/// @nodoc
+@JsonSerializable()
+class _$_OpenWeatherData
+    with DiagnosticableTreeMixin
+    implements _OpenWeatherData {
+  const _$_OpenWeatherData({required this.main, required this.weather});
+
+  factory _$_OpenWeatherData.fromJson(Map<String, dynamic> json) =>
+      _$$_OpenWeatherDataFromJson(json);
+
+  @override
+  final OpenWeatherMain main;
+  @override
+  final OpenWeather weather;
+
+  @override
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
+    return 'OpenWeatherData(main: $main, weather: $weather)';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties
+      ..add(DiagnosticsProperty('type', 'OpenWeatherData'))
+      ..add(DiagnosticsProperty('main', main))
+      ..add(DiagnosticsProperty('weather', weather));
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$_OpenWeatherData &&
+            const DeepCollectionEquality().equals(other.main, main) &&
+            const DeepCollectionEquality().equals(other.weather, weather));
+  }
+
+  @JsonKey(ignore: true)
+  @override
+  int get hashCode => Object.hash(
+      runtimeType,
+      const DeepCollectionEquality().hash(main),
+      const DeepCollectionEquality().hash(weather));
+
+  @JsonKey(ignore: true)
+  @override
+  _$$_OpenWeatherDataCopyWith<_$_OpenWeatherData> get copyWith =>
+      __$$_OpenWeatherDataCopyWithImpl<_$_OpenWeatherData>(this, _$identity);
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$$_OpenWeatherDataToJson(this);
+  }
+}
+
+abstract class _OpenWeatherData implements OpenWeatherData {
+  const factory _OpenWeatherData(
+      {required final OpenWeatherMain main,
+      required final OpenWeather weather}) = _$_OpenWeatherData;
+
+  factory _OpenWeatherData.fromJson(Map<String, dynamic> json) =
+      _$_OpenWeatherData.fromJson;
+
+  @override
+  OpenWeatherMain get main => throw _privateConstructorUsedError;
+  @override
+  OpenWeather get weather => throw _privateConstructorUsedError;
+  @override
+  @JsonKey(ignore: true)
+  _$$_OpenWeatherDataCopyWith<_$_OpenWeatherData> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+OpenWeatherMain _$OpenWeatherMainFromJson(Map<String, dynamic> json) {
+  return _OpenWeatherMain.fromJson(json);
+}
+
+/// @nodoc
+mixin _$OpenWeatherMain {
+  @JsonKey(name: 'feels_like')
+  double get temp => throw _privateConstructorUsedError;
+
+  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
+  @JsonKey(ignore: true)
+  $OpenWeatherMainCopyWith<OpenWeatherMain> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class $OpenWeatherMainCopyWith<$Res> {
+  factory $OpenWeatherMainCopyWith(
+          OpenWeatherMain value, $Res Function(OpenWeatherMain) then) =
+      _$OpenWeatherMainCopyWithImpl<$Res>;
+  $Res call({@JsonKey(name: 'feels_like') double temp});
+}
+
+/// @nodoc
+class _$OpenWeatherMainCopyWithImpl<$Res>
+    implements $OpenWeatherMainCopyWith<$Res> {
+  _$OpenWeatherMainCopyWithImpl(this._value, this._then);
+
+  final OpenWeatherMain _value;
+  // ignore: unused_field
+  final $Res Function(OpenWeatherMain) _then;
+
+  @override
+  $Res call({
+    Object? temp = freezed,
+  }) {
+    return _then(_value.copyWith(
+      temp: temp == freezed
+          ? _value.temp
+          : temp // ignore: cast_nullable_to_non_nullable
+              as double,
+    ));
+  }
+}
+
+/// @nodoc
+abstract class _$$_OpenWeatherMainCopyWith<$Res>
+    implements $OpenWeatherMainCopyWith<$Res> {
+  factory _$$_OpenWeatherMainCopyWith(
+          _$_OpenWeatherMain value, $Res Function(_$_OpenWeatherMain) then) =
+      __$$_OpenWeatherMainCopyWithImpl<$Res>;
+  @override
+  $Res call({@JsonKey(name: 'feels_like') double temp});
+}
+
+/// @nodoc
+class __$$_OpenWeatherMainCopyWithImpl<$Res>
+    extends _$OpenWeatherMainCopyWithImpl<$Res>
+    implements _$$_OpenWeatherMainCopyWith<$Res> {
+  __$$_OpenWeatherMainCopyWithImpl(
+      _$_OpenWeatherMain _value, $Res Function(_$_OpenWeatherMain) _then)
+      : super(_value, (v) => _then(v as _$_OpenWeatherMain));
+
+  @override
+  _$_OpenWeatherMain get _value => super._value as _$_OpenWeatherMain;
+
+  @override
+  $Res call({
+    Object? temp = freezed,
+  }) {
+    return _then(_$_OpenWeatherMain(
+      temp: temp == freezed
+          ? _value.temp
+          : temp // ignore: cast_nullable_to_non_nullable
+              as double,
+    ));
+  }
+}
+
+/// @nodoc
+@JsonSerializable()
+class _$_OpenWeatherMain
+    with DiagnosticableTreeMixin
+    implements _OpenWeatherMain {
+  const _$_OpenWeatherMain({@JsonKey(name: 'feels_like') required this.temp});
+
+  factory _$_OpenWeatherMain.fromJson(Map<String, dynamic> json) =>
+      _$$_OpenWeatherMainFromJson(json);
+
+  @override
+  @JsonKey(name: 'feels_like')
+  final double temp;
+
+  @override
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
+    return 'OpenWeatherMain(temp: $temp)';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties
+      ..add(DiagnosticsProperty('type', 'OpenWeatherMain'))
+      ..add(DiagnosticsProperty('temp', temp));
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$_OpenWeatherMain &&
+            const DeepCollectionEquality().equals(other.temp, temp));
+  }
+
+  @JsonKey(ignore: true)
+  @override
+  int get hashCode =>
+      Object.hash(runtimeType, const DeepCollectionEquality().hash(temp));
+
+  @JsonKey(ignore: true)
+  @override
+  _$$_OpenWeatherMainCopyWith<_$_OpenWeatherMain> get copyWith =>
+      __$$_OpenWeatherMainCopyWithImpl<_$_OpenWeatherMain>(this, _$identity);
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$$_OpenWeatherMainToJson(this);
+  }
+}
+
+abstract class _OpenWeatherMain implements OpenWeatherMain {
+  const factory _OpenWeatherMain(
+          {@JsonKey(name: 'feels_like') required final double temp}) =
+      _$_OpenWeatherMain;
+
+  factory _OpenWeatherMain.fromJson(Map<String, dynamic> json) =
+      _$_OpenWeatherMain.fromJson;
+
+  @override
+  @JsonKey(name: 'feels_like')
+  double get temp => throw _privateConstructorUsedError;
+  @override
+  @JsonKey(ignore: true)
+  _$$_OpenWeatherMainCopyWith<_$_OpenWeatherMain> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+OpenWeather _$OpenWeatherFromJson(Map<String, dynamic> json) {
+  return _OpenWeather.fromJson(json);
+}
+
+/// @nodoc
+mixin _$OpenWeather {
   String get description => throw _privateConstructorUsedError;
   String get icon => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
-  $OpenWeatherDescAndIconCopyWith<OpenWeatherDescAndIcon> get copyWith =>
+  $OpenWeatherCopyWith<OpenWeather> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class $OpenWeatherDescAndIconCopyWith<$Res> {
-  factory $OpenWeatherDescAndIconCopyWith(OpenWeatherDescAndIcon value,
-          $Res Function(OpenWeatherDescAndIcon) then) =
-      _$OpenWeatherDescAndIconCopyWithImpl<$Res>;
+abstract class $OpenWeatherCopyWith<$Res> {
+  factory $OpenWeatherCopyWith(
+          OpenWeather value, $Res Function(OpenWeather) then) =
+      _$OpenWeatherCopyWithImpl<$Res>;
   $Res call({String description, String icon});
 }
 
 /// @nodoc
-class _$OpenWeatherDescAndIconCopyWithImpl<$Res>
-    implements $OpenWeatherDescAndIconCopyWith<$Res> {
-  _$OpenWeatherDescAndIconCopyWithImpl(this._value, this._then);
+class _$OpenWeatherCopyWithImpl<$Res> implements $OpenWeatherCopyWith<$Res> {
+  _$OpenWeatherCopyWithImpl(this._value, this._then);
 
-  final OpenWeatherDescAndIcon _value;
+  final OpenWeather _value;
   // ignore: unused_field
-  final $Res Function(OpenWeatherDescAndIcon) _then;
+  final $Res Function(OpenWeather) _then;
 
   @override
   $Res call({
@@ -430,33 +895,31 @@ class _$OpenWeatherDescAndIconCopyWithImpl<$Res>
 }
 
 /// @nodoc
-abstract class _$$_OpenWeatherDescAndIconCopyWith<$Res>
-    implements $OpenWeatherDescAndIconCopyWith<$Res> {
-  factory _$$_OpenWeatherDescAndIconCopyWith(_$_OpenWeatherDescAndIcon value,
-          $Res Function(_$_OpenWeatherDescAndIcon) then) =
-      __$$_OpenWeatherDescAndIconCopyWithImpl<$Res>;
+abstract class _$$_OpenWeatherCopyWith<$Res>
+    implements $OpenWeatherCopyWith<$Res> {
+  factory _$$_OpenWeatherCopyWith(
+          _$_OpenWeather value, $Res Function(_$_OpenWeather) then) =
+      __$$_OpenWeatherCopyWithImpl<$Res>;
   @override
   $Res call({String description, String icon});
 }
 
 /// @nodoc
-class __$$_OpenWeatherDescAndIconCopyWithImpl<$Res>
-    extends _$OpenWeatherDescAndIconCopyWithImpl<$Res>
-    implements _$$_OpenWeatherDescAndIconCopyWith<$Res> {
-  __$$_OpenWeatherDescAndIconCopyWithImpl(_$_OpenWeatherDescAndIcon _value,
-      $Res Function(_$_OpenWeatherDescAndIcon) _then)
-      : super(_value, (v) => _then(v as _$_OpenWeatherDescAndIcon));
+class __$$_OpenWeatherCopyWithImpl<$Res> extends _$OpenWeatherCopyWithImpl<$Res>
+    implements _$$_OpenWeatherCopyWith<$Res> {
+  __$$_OpenWeatherCopyWithImpl(
+      _$_OpenWeather _value, $Res Function(_$_OpenWeather) _then)
+      : super(_value, (v) => _then(v as _$_OpenWeather));
 
   @override
-  _$_OpenWeatherDescAndIcon get _value =>
-      super._value as _$_OpenWeatherDescAndIcon;
+  _$_OpenWeather get _value => super._value as _$_OpenWeather;
 
   @override
   $Res call({
     Object? description = freezed,
     Object? icon = freezed,
   }) {
-    return _then(_$_OpenWeatherDescAndIcon(
+    return _then(_$_OpenWeather(
       description: description == freezed
           ? _value.description
           : description // ignore: cast_nullable_to_non_nullable
@@ -471,14 +934,11 @@ class __$$_OpenWeatherDescAndIconCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_OpenWeatherDescAndIcon
-    with DiagnosticableTreeMixin
-    implements _OpenWeatherDescAndIcon {
-  const _$_OpenWeatherDescAndIcon(
-      {required this.description, required this.icon});
+class _$_OpenWeather with DiagnosticableTreeMixin implements _OpenWeather {
+  const _$_OpenWeather({required this.description, required this.icon});
 
-  factory _$_OpenWeatherDescAndIcon.fromJson(Map<String, dynamic> json) =>
-      _$$_OpenWeatherDescAndIconFromJson(json);
+  factory _$_OpenWeather.fromJson(Map<String, dynamic> json) =>
+      _$$_OpenWeatherFromJson(json);
 
   @override
   final String description;
@@ -487,14 +947,14 @@ class _$_OpenWeatherDescAndIcon
 
   @override
   String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
-    return 'OpenWeatherDescAndIcon(description: $description, icon: $icon)';
+    return 'OpenWeather(description: $description, icon: $icon)';
   }
 
   @override
   void debugFillProperties(DiagnosticPropertiesBuilder properties) {
     super.debugFillProperties(properties);
     properties
-      ..add(DiagnosticsProperty('type', 'OpenWeatherDescAndIcon'))
+      ..add(DiagnosticsProperty('type', 'OpenWeather'))
       ..add(DiagnosticsProperty('description', description))
       ..add(DiagnosticsProperty('icon', icon));
   }
@@ -503,7 +963,7 @@ class _$_OpenWeatherDescAndIcon
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_OpenWeatherDescAndIcon &&
+            other is _$_OpenWeather &&
             const DeepCollectionEquality()
                 .equals(other.description, description) &&
             const DeepCollectionEquality().equals(other.icon, icon));
@@ -518,23 +978,22 @@ class _$_OpenWeatherDescAndIcon
 
   @JsonKey(ignore: true)
   @override
-  _$$_OpenWeatherDescAndIconCopyWith<_$_OpenWeatherDescAndIcon> get copyWith =>
-      __$$_OpenWeatherDescAndIconCopyWithImpl<_$_OpenWeatherDescAndIcon>(
-          this, _$identity);
+  _$$_OpenWeatherCopyWith<_$_OpenWeather> get copyWith =>
+      __$$_OpenWeatherCopyWithImpl<_$_OpenWeather>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_OpenWeatherDescAndIconToJson(this);
+    return _$$_OpenWeatherToJson(this);
   }
 }
 
-abstract class _OpenWeatherDescAndIcon implements OpenWeatherDescAndIcon {
-  const factory _OpenWeatherDescAndIcon(
+abstract class _OpenWeather implements OpenWeather {
+  const factory _OpenWeather(
       {required final String description,
-      required final String icon}) = _$_OpenWeatherDescAndIcon;
+      required final String icon}) = _$_OpenWeather;
 
-  factory _OpenWeatherDescAndIcon.fromJson(Map<String, dynamic> json) =
-      _$_OpenWeatherDescAndIcon.fromJson;
+  factory _OpenWeather.fromJson(Map<String, dynamic> json) =
+      _$_OpenWeather.fromJson;
 
   @override
   String get description => throw _privateConstructorUsedError;
@@ -542,6 +1001,6 @@ abstract class _OpenWeatherDescAndIcon implements OpenWeatherDescAndIcon {
   String get icon => throw _privateConstructorUsedError;
   @override
   @JsonKey(ignore: true)
-  _$$_OpenWeatherDescAndIconCopyWith<_$_OpenWeatherDescAndIcon> get copyWith =>
+  _$$_OpenWeatherCopyWith<_$_OpenWeather> get copyWith =>
       throw _privateConstructorUsedError;
 }
