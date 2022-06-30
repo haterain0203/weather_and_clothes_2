@@ -16,6 +16,7 @@ import 'package:weather_and_clothes_2/state/open_weather_state.dart';
 // ②昨日のデータ以外はOpenWeatherに統一
 // この場合、当日の気温と天気取得するためのAPIと翌日・翌々日の天気取得するためのAPIにアクセス必要（有償なら一つのAPIでできるが無料の場合この対応が必要）
 // 加えて、上記記載の通り、取得したList内でループ処理必要
+
 class OpenWeatherRepository {
   // 郵便番号から、本日の気温（朝・昼・夜）と翌日、翌々日の昼の気温を取得する
   // https://openweathermap.org/forecast5#zip5
